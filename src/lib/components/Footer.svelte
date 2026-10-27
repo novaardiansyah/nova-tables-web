@@ -11,7 +11,8 @@
 
 <footer class="w-full border-t border-paper-border bg-paper-subtle px-4 py-10 text-xs text-pine-700 dark:border-white/10 dark:bg-surface-dark-card dark:text-white/60">
 	<div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
-		<div class="flex items-center gap-2">
+		<div class="flex items-center gap-2.5">
+			<img src="/logo.png" alt="Nova Tables Logo" class="h-5 w-5 rounded object-contain" />
 			<span class="font-semibold text-pine-900 dark:text-white">Nova Tables</span>
 			<span class="text-paper-border dark:text-white/20">&bull;</span>
 			<a
@@ -27,19 +28,19 @@
 		<div class="flex items-center gap-6">
 			<button
 				class="transition-colors hover:text-pine-950 dark:hover:text-white cursor-pointer"
-				on:click={(e) => handleNavClick('/', e)}
+				onclick={(e) => handleNavClick('/', e)}
 			>
 				{ t('nav.home', appState.lang) }
 			</button>
 			<button
 				class="transition-colors hover:text-pine-950 dark:hover:text-white cursor-pointer"
-				on:click={(e) => handleNavClick('/privacy', e)}
+				onclick={(e) => handleNavClick('/privacy-policy', e)}
 			>
 				{ t('nav.privacy', appState.lang) }
 			</button>
 			<button
 				class="transition-colors hover:text-pine-950 dark:hover:text-white cursor-pointer"
-				on:click={(e) => handleNavClick('/terms', e)}
+				onclick={(e) => handleNavClick('/terms-of-service', e)}
 			>
 				{ t('nav.terms', appState.lang) }
 			</button>

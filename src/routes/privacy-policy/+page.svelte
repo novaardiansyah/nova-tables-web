@@ -37,11 +37,5 @@
 				</div>
 			{/each}
 		</div>
-
-		<div class="mt-12 text-center">
-			<p class="text-sm text-pine-600 dark:text-sage-400">
-				{t('features.copyright', appState.lang)}
-			</p>
-		</div>
 	</div>
 </div>
