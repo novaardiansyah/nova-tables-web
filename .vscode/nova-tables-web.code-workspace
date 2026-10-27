@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"statusBar.background": "#053692"
+		},
+		"rest-client.environmentVariables": {
+			"local": {
+				"api_url": "https://nits-inventory.novancr.my.id/nitsInv_api/api/v1"
+			},
+		}
+	},
+}
