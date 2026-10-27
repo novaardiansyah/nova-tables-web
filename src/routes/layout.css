@@ -4,31 +4,44 @@
 
 @theme {
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Fresh & Natural Forest Greens */
-  --color-pine-950: #0b1a13;
-  --color-pine-900: #12281d;
-  --color-pine-800: #1a392a;
-  --color-pine-700: #234c38;
-  --color-pine-600: #2e6249;
-  --color-pine-500: #3b7c5d;
+  --color-pine-950: #0a1710;
+  --color-pine-900: #10241a;
+  --color-pine-800: #173325;
+  --color-pine-700: #1e4532;
+  --color-pine-600: #295b43;
+  --color-pine-500: #357556;
 
   /* Fresh Sage & Mint */
   --color-sage-50: #f4f8f5;
-  --color-sage-100: #e7f1ea;
-  --color-sage-200: #cfe1d5;
-  --color-sage-300: #a9c7b3;
-  --color-sage-400: #71a884;
-  --color-sage-500: #498864;
-  --color-sage-600: #3a7051;
-  --color-sage-700: #2d563e;
+  --color-sage-100: #e5efe8;
+  --color-sage-200: #c9ded0;
+  --color-sage-300: #9fc3a9;
+  --color-sage-400: #6ea37c;
+  --color-sage-500: #46845f;
+  --color-sage-600: #35674a;
+  --color-sage-700: #274c36;
 
-  /* Warm Natural Paper & Stone */
-  --color-paper-base: #faf9f5;
+  /* Light Pine Tones (readable on dark surfaces) */
+  --color-pine-100: #e5f0e6;
+  --color-pine-200: #c9ded0;
+  --color-pine-300: #9fc3a9;
+  --color-pine-400: #6ea37c;
+
+  /* Warm Natural Paper & Modern Surfaces */
+  --color-paper-base: #f8faf8;
   --color-paper-card: #ffffff;
-  --color-paper-subtle: #f4f2eb;
-  --color-paper-border: #e6e3da;
-  --color-paper-muted: #5e665e;
+  --color-paper-subtle: #eff4f0;
+  --color-paper-border: #dde5df;
+  --color-paper-muted: #4e5f55;
+
+  /* Dark mode surfaces */
+  --color-surface-dark-base: #09100c;
+  --color-surface-dark-card: #111a14;
+  --color-surface-dark-subtle: #17241c;
+  --color-surface-dark-border: rgba(255, 255, 255, 0.08);
 }
 
 :root {
@@ -43,21 +56,25 @@ body {
   font-family: var(--font-sans);
   background-color: var(--color-paper-base);
   color: var(--color-pine-950);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
 }
 
 html.dark body {
-  background-color: #0b120e;
-  color: #e7f1ea;
+  background-color: #09100c;
+  color: #f3f6f4;
 }
 
-/* Subtle organic grain texture without heavy images */
-.natural-paper {
-  background-image: radial-gradient(rgba(35, 76, 56, 0.05) 1px, transparent 1px);
+/* Subtle modern grid / organic dot texture */
+.dot-grid {
+  background-image: radial-gradient(rgba(30, 69, 50, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-html.dark .natural-paper {
-  background-image: radial-gradient(rgba(113, 168, 132, 0.07) 1px, transparent 1px);
+html.dark .dot-grid {
+  background-image: radial-gradient(rgba(142, 196, 159, 0.12) 1px, transparent 1px);
   background-size: 24px 24px;
 }

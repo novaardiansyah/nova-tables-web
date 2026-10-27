@@ -20,7 +20,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
-<div class="flex min-h-screen flex-col bg-paper-base text-pine-950 antialiased dark:bg-[#0b120e] dark:text-[#e7f1ea]">
+<div class="flex min-h-screen flex-col bg-paper-base text-pine-950 antialiased dark:bg-surface-dark-base dark:text-white">
 	<Header />
 	<main class="flex-1">
 		{@render children()}

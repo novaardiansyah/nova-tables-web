@@ -16,22 +16,22 @@
 	<meta name="description" content={t('privacy.intro', appState.lang)} />
 </svelte:head>
 
-<div class="relative bg-paper-base min-h-screen overflow-x-hidden dark:bg-[#0b120e] transition-colors duration-300">
+<div class="relative min-h-screen overflow-hidden bg-paper-base text-pine-950 transition-colors duration-300 dark:bg-surface-dark-base dark:text-white">
 	<div class="mx-auto max-w-3xl px-4 py-16 md:py-24">
-		<h1 class="text-4xl md:text-5xl font-bold text-pine-950 dark:text-[#e7f1ea] tracking-tighter mb-6">
+		<h1 class="mb-6 text-4xl font-bold tracking-tight text-pine-950 md:text-5xl dark:text-white">
 			{t('privacy.title', appState.lang)}
 		</h1>
-		<p class="text-sage-600 dark:text-sage-400 mb-12 text-lg">
+		<p class="mb-12 text-lg text-pine-700 dark:text-sage-300">
 			{t('privacy.intro', appState.lang)}
 		</p>
 
-		<div class="space-y-8">
+		<div class="space-y-6">
 			{#each sections as section}
-				<div class="bg-white dark:bg-paper-card rounded-xl p-6 shadow-sm">
-					<h2 class="text-xl font-bold text-pine-950 dark:text-[#e7f1ea] mb-3">
+				<div class="rounded-2xl border border-paper-border bg-white p-6 shadow-sm dark:border-white/10 dark:bg-surface-dark-card dark:shadow-black/30">
+					<h2 class="mb-3 text-xl font-semibold text-pine-950 dark:text-white">
 						{section.title}
 					</h2>
-					<p class="text-pine-700 dark:text-pine-300 leading-relaxed text-sm">
+					<p class="text-sm leading-relaxed text-pine-700 dark:text-sage-300">
 						{section.content}
 					</p>
 				</div>
@@ -39,7 +39,7 @@
 		</div>
 
 		<div class="mt-12 text-center">
-			<p class="text-pine-600 dark:text-pine-400 text-sm">
+			<p class="text-sm text-pine-600 dark:text-sage-400">
 				{t('features.copyright', appState.lang)}
 			</p>
 		</div>
