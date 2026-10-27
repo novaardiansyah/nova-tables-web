@@ -18,6 +18,7 @@
 	<meta name="twitter:description" content="Modern SQL client for Microsoft SQL Server" />
 	<meta name="twitter:image" content="/logo.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" href="/logo.png" type="image/png" />
 </svelte:head>
 
 <div class="flex min-h-screen flex-col bg-paper-base text-pine-950 antialiased dark:bg-surface-dark-base dark:text-white">

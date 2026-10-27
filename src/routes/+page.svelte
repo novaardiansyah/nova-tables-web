@@ -110,7 +110,7 @@
 
 	<!-- About Section -->
 	<section class="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
-		<div class="mx-auto max-w-3xl">
+		<div>
 			<h2 class="text-3xl font-bold tracking-tight text-pine-950 md:text-4xl dark:text-white">{t('about.title', appState.lang)}</h2>
 			<p class="mt-5 text-base leading-relaxed text-pine-700 md:text-lg dark:text-sage-300">{t('about.description', appState.lang)}</p>
 			<div class="mt-8 rounded-2xl border border-paper-border bg-paper-subtle/70 p-6 dark:border-white/10 dark:bg-surface-dark-card">
@@ -123,7 +123,7 @@
 	<!-- Features Section -->
 	<section id="features" class="relative border-y border-paper-border bg-paper-subtle/50 dark:border-white/10 dark:bg-surface-dark-card/40">
 		<div class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-			<div class="mb-12 max-w-2xl">
+			<div class="mb-12">
 				<h2 class="text-3xl font-bold tracking-tight text-pine-950 md:text-4xl dark:text-white">{t('features.title', appState.lang)}</h2>
 				<div class="mt-4 h-1 w-16 rounded-full bg-sage-500"></div>
 			</div>

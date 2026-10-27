@@ -69,13 +69,13 @@ export const translations: Record<Lang, Record<TranslationKey, string>> = {
 		'nav.theme': 'Theme',
 		// Hero
 		'hero.title': 'Nova Tables',
-		'hero.subtitle': 'Modern desktop SQL client for Microsoft SQL Server',
+		'hero.subtitle': 'Modern desktop SQL client for Microsoft SQL Server - built for professionals who work with SQL Server every day.',
 		'hero.cta': 'View project',
 		'hero.url': 'https://nova-tables.novaardiansyah.id',
 		// About
 		'about.title': 'About Nova Tables',
 		'about.description':
-			'Nova Tables brings your connections, databases, tables, queries and results together in one calm workspace, so you can focus on the work instead of the tooling.',
+			'Nova Tables is a local desktop SQL client that brings your connections, databases, tables, queries and results together in one calm workspace. Built for people who work with Microsoft SQL Server every day - organize connections, browse object trees, write and run queries, read results in a high-performance grid, and generate ready-to-run UPDATE or CREATE TABLE scripts - all without ever uploading your data.',
 		'about.note': 'Note: Nova Tables works with Microsoft SQL Server only.',
 		'about.noteDetail':
 			'It is a local desktop application - nothing is uploaded anywhere, and neither your data nor your credentials ever leave your computer.',
@@ -136,13 +136,13 @@ export const translations: Record<Lang, Record<TranslationKey, string>> = {
 		'nav.theme': 'Tema',
 		// Hero
 		'hero.title': 'Nova Tables',
-		'hero.subtitle': 'Klien SQL desktop modern untuk Microsoft SQL Server',
+		'hero.subtitle': 'Klien SQL desktop modern untuk Microsoft SQL Server - dirancang khusus untuk para profesional yang bekerja dengan SQL Server setiap hari.',
 		'hero.cta': 'Lihat proyek',
 		'hero.url': 'https://nova-tables.novaardiansyah.id',
 		// About
 		'about.title': 'Tentang Nova Tables',
 		'about.description':
-			'Nova Tables membawa koneksi, database, tabel, kueri, dan hasil Anda menjadi satu ruang kerja yang tenang, sehingga Anda dapat fokus pada pekerjaan bukan pada tooling.',
+			'Nova Tables adalah klien SQL desktop lokal yang membawa koneksi, database, tabel, kueri, dan hasil Anda menjadi satu ruang kerja yang tenang. Dibangun untuk orang-orang yang bekerja setiap hari dengan Microsoft SQL Server - kelola koneksi, brows objek, tulis dan jalankan kueri, baca hasil dalam grid performa tinggi, dan generate perintah UPDATE atau CREATE TABLE siap jalankan - tanpa mengunggah data Anda sama sekali.',
 		'about.note': 'Catatan: Nova Tables bekerja hanya dengan Microsoft SQL Server.',
 		'about.noteDetail':
 			'Ini adalah aplikasi desktop lokal - tidak ada yang diunggah ke mana pun, dan baik data Anda maupun kredensial Anda tidak pernah keluar dari komputer Anda.',
