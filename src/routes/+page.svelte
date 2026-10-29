@@ -28,12 +28,12 @@
 	</div>
 
 	<!-- Hero -->
-	<section class="relative pt-20 sm:pt-24 lg:pt-28" aria-labelledby="hero-heading">
+	<section class="relative pt-12 sm:pt-24 lg:pt-28" aria-labelledby="hero-heading">
 		<div class="mx-auto w-full max-w-7xl px-5 text-center sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-4xl">
 				<h1
 					id="hero-heading"
-					class="animate-rise-delayed text-balance text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.045em] text-ink sm:text-6xl lg:text-[4.4rem]"
+					class="animate-rise-delayed text-balance text-[2rem] font-semibold leading-[1.06] tracking-[-0.045em] text-ink sm:text-6xl lg:text-[4.4rem]"
 				>
 					{content.hero.titleLead}
 					<span class="block text-accent">{content.hero.titleAccent}</span>
@@ -45,7 +45,7 @@
 					{content.hero.description}
 				</p>
 
-				<div class="animate-rise-delayed mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+				<div class="animate-rise-delayed mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row">
 					<a
 						href="#download"
 						class="group inline-flex w-full items-center justify-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-semibold text-page transition-opacity hover:opacity-90 sm:w-auto"
@@ -67,14 +67,14 @@
 					</a>
 				</div>
 
-				<p class="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] text-faint">
+				<p class="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-faint">
 					<Icon name="device" class="h-3.5 w-3.5" />
 					{content.hero.platforms}
 				</p>
 			</div>
 		</div>
 
-		<div class="relative mx-auto mt-14 w-full max-w-7xl px-5 sm:mt-16 sm:px-6 lg:px-8">
+		<div class="relative mx-auto mt-10 w-full max-w-7xl px-5 sm:mt-16 sm:px-6 lg:px-8">
 			<div
 				class="pointer-events-none absolute inset-x-16 top-10 h-52 rounded-full bg-accent-soft blur-[110px]"
 				aria-hidden="true"
@@ -90,14 +90,14 @@
 							<span class="h-2 w-2 rounded-full bg-[#28c840]/80"></span>
 						</div>
 						<div
-							class="mx-auto flex min-w-0 items-center gap-1.5 text-[10px] font-medium text-faint sm:text-[11px]"
+							class="mx-auto flex min-w-0 items-center gap-1.5 text-[10px] font-medium text-faint sm:text-xs"
 						>
 							<Icon name="database" class="h-3 w-3 shrink-0" />
 							<span class="truncate">Nova Tables</span>
 							<span class="text-line-strong">/</span>
 							<span class="truncate text-muted">Local Testing DB</span>
 						</div>
-						<span class="hidden font-mono text-[9px] uppercase tracking-[0.16em] text-faint sm:block">
+						<span class="hidden font-mono text-[10px] uppercase tracking-[0.16em] text-faint sm:block">
 							MSSQL
 						</span>
 					</div>
@@ -114,7 +114,7 @@
 			</figure>
 		</div>
 
-		<div class="relative mx-auto mt-10 w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+		<div class="relative mx-auto mt-8 w-full max-w-7xl px-5 sm:mt-10 sm:px-6 lg:px-8">
 			<dl
 				class="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line lg:grid-cols-4"
 			>
@@ -123,7 +123,7 @@
 						<dt class="font-display text-lg font-semibold tracking-tight text-ink sm:text-xl">
 							{stat.value}
 						</dt>
-						<dd class="mt-1 text-[10px] uppercase leading-4 tracking-[0.12em] text-faint sm:text-[11px]">
+						<dd class="mt-1 text-[10px] uppercase leading-4 tracking-[0.08em] text-faint sm:text-xs">
 							{stat.label}
 						</dd>
 					</div>
@@ -133,15 +133,15 @@
 	</section>
 
 	<!-- Product showcase -->
-	<section id="product" class="relative scroll-mt-24 py-20 sm:py-28">
+	<section id="product" class="relative scroll-mt-24 py-12 sm:py-28">
 		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
-			<div class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+			<div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
 				<div class="lg:sticky lg:top-24 lg:self-start">
 					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
 						{content.showcase.eyebrow}
 					</p>
 					<h2
-						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+						class="mt-4 text-balance text-[1.75rem] font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
 					>
 						{content.showcase.title}
 					</h2>
@@ -149,7 +149,7 @@
 						{content.showcase.description}
 					</p>
 
-					<div class="mt-8" role="tablist" aria-label="Product views">
+					<div class="mt-6 sm:mt-8" role="tablist" aria-label="Product views">
 						{#each showcase as item, index}
 							<button
 								type="button"
@@ -157,9 +157,9 @@
 								id={`showcase-tab-${index}`}
 								aria-controls="showcase-panel"
 								aria-selected={activeShowcase === index}
-								class="group flex w-full items-start gap-4 border-t border-line px-1 py-4 text-left transition-colors {activeShowcase ===
+								class="group flex w-full items-start gap-3 border-t border-l-2 border-line border-l-transparent py-4 pl-3 pr-1 text-left transition-colors {activeShowcase ===
 								index
-									? 'border-l-2 border-l-accent pl-3'
+									? 'border-l-accent'
 									: 'hover:bg-surface/40'}"
 								onclick={() => (activeShowcase = index)}
 							>
@@ -208,11 +208,11 @@
 									<span class="h-2 w-2 rounded-full bg-[#febc2e]/80"></span>
 									<span class="h-2 w-2 rounded-full bg-[#28c840]/80"></span>
 								</div>
-								<span class="mx-auto flex items-center gap-1.5 text-[10px] text-faint sm:text-[11px]">
-									<Icon name="database" class="h-3 w-3" />
-									{activeItem.label}
+								<span class="mx-auto flex min-w-0 items-center gap-1.5 text-[10px] text-faint sm:text-xs">
+									<Icon name="database" class="h-3 w-3 shrink-0" />
+									<span class="truncate">{activeItem.label}</span>
 								</span>
-								<span class="font-mono text-[9px] uppercase tracking-[0.16em] text-faint">v2.1.0</span>
+								<span class="hidden font-mono text-[10px] uppercase tracking-[0.16em] text-faint sm:block">v2.1.0</span>
 							</div>
 							<div class="relative aspect-[16/10]">
 								{#each showcase as item, index}
@@ -238,7 +238,7 @@
 						<p class="text-sm leading-6 text-muted">{activeItem.description}</p>
 						<ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
 							{#each activeItem.bullets as bullet}
-								<li class="flex items-center gap-1.5 text-[11px] text-faint">
+								<li class="flex items-center gap-1.5 text-xs text-faint">
 									<Icon name="check" class="h-3 w-3 text-accent" />
 									{bullet}
 								</li>
@@ -251,24 +251,24 @@
 	</section>
 
 	<!-- Value proposition -->
-	<section id="features" class="relative scroll-mt-24 border-t border-line py-20 sm:py-28">
+	<section id="features" class="relative scroll-mt-24 border-t border-line py-12 sm:py-28">
 		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
-			<div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+			<div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
 				<div class="lg:sticky lg:top-24 lg:self-start">
 					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
 						{content.value.eyebrow}
 					</p>
 					<h2
-						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+						class="mt-4 text-balance text-[1.75rem] font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
 					>
 						{content.value.title}
 					</h2>
 					<p class="mt-5 max-w-md text-sm leading-6 text-muted sm:text-base sm:leading-7">
 						{content.value.description}
 					</p>
-					<blockquote class="mt-8 border-l border-accent/40 pl-5">
+					<blockquote class="mt-6 border-l border-accent/40 pl-5 sm:mt-8">
 						<p class="text-sm leading-6 text-ink">“{content.value.quote}”</p>
-						<footer class="mt-2 text-[11px] uppercase tracking-[0.12em] text-faint">
+						<footer class="mt-2 text-xs uppercase tracking-[0.12em] text-faint">
 							- {content.value.quoteSource}
 						</footer>
 					</blockquote>
@@ -276,8 +276,8 @@
 
 				<ol class="reveal border-y border-line">
 					{#each content.value.items as item}
-						<li class="grid gap-4 border-b border-line py-8 last:border-b-0 sm:grid-cols-[auto_1fr] sm:gap-8">
-							<span class="font-mono text-[11px] text-accent">{item.number}</span>
+						<li class="grid grid-cols-[auto_1fr] gap-4 border-b border-line py-6 last:border-b-0 sm:gap-8 sm:py-8">
+							<span class="font-mono text-xs text-accent">{item.number}</span>
 							<div>
 								<h3 class="text-lg font-semibold tracking-tight text-ink">{item.title}</h3>
 								<p class="mt-2 max-w-lg text-sm leading-6 text-muted">{item.description}</p>
@@ -290,14 +290,14 @@
 	</section>
 
 	<!-- Capabilities -->
-	<section id="capabilities" class="relative scroll-mt-24 border-t border-line py-20 sm:py-28">
+	<section id="capabilities" class="relative scroll-mt-24 border-t border-line py-12 sm:py-28">
 		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
 			<div class="max-w-3xl">
 				<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
 					{content.capabilities.eyebrow}
 				</p>
 				<h2
-					class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+					class="mt-4 text-balance text-[1.75rem] font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
 				>
 					{content.capabilities.title}
 				</h2>
@@ -306,13 +306,13 @@
 				</p>
 			</div>
 
-			<div class="reveal mt-12 grid gap-4 lg:grid-cols-3">
+			<div class="reveal mt-10 grid gap-4 lg:grid-cols-3">
 				<!-- Editor -->
 				<article
-					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6 lg:col-span-2"
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong sm:p-6 lg:col-span-2"
 				>
-					<div class="grid gap-6 sm:grid-cols-[1fr_1.05fr] sm:items-center">
-						<div>
+					<div class="grid min-w-0 gap-5 sm:grid-cols-[1fr_1.05fr] sm:items-center sm:gap-6">
+						<div class="min-w-0">
 							<div class="flex items-center gap-2.5">
 								<span
 									class="flex h-7 w-7 items-center justify-center rounded-md border border-line bg-page text-accent"
@@ -329,9 +329,9 @@
 							</p>
 						</div>
 
-						<div class="overflow-hidden rounded-lg border border-white/10 bg-code-bg shadow-inner">
+						<div class="min-w-0 overflow-hidden rounded-lg border border-white/10 bg-code-bg shadow-inner">
 							<div class="flex items-center justify-between border-b border-white/10 px-3.5 py-2">
-								<span class="flex items-center gap-1.5 font-mono text-[9px] text-code-ink/50">
+								<span class="flex items-center gap-1.5 font-mono text-[10px] text-code-ink/50">
 									<span class="h-1.5 w-1.5 rounded-full bg-emerald-400/80"></span>
 									Query 1
 								</span>
@@ -340,12 +340,12 @@
 								</span>
 							</div>
 							<pre
-								class="overflow-x-auto px-3.5 py-3 font-mono text-[10px] leading-6 text-code-ink sm:text-[11px]"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName,
+								class="max-w-full overflow-x-auto px-3.5 py-3 font-mono text-[10px] leading-6 text-code-ink sm:text-xs"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName,
   Email, City
 <span class="text-sky-300">FROM</span> dbo.Customers
 <span class="text-sky-300">ORDER BY</span> Id;</code></pre>
 							<div
-								class="flex items-center justify-between border-t border-white/10 px-3.5 py-2 font-mono text-[9px] text-code-ink/40"
+								class="flex items-center justify-between border-t border-white/10 px-3.5 py-2 font-mono text-[10px] text-code-ink/40"
 							>
 								<span>24 rows · 3 ms</span>
 								<span class="text-emerald-400/90">Query succeeded</span>
@@ -356,7 +356,7 @@
 
 				<!-- Execution plans -->
 				<article
-					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong sm:p-6"
 				>
 					<div class="flex items-center gap-2.5">
 						<span
@@ -368,7 +368,7 @@
 					</div>
 					<p class="mt-3 text-sm leading-6 text-muted">{content.capabilities.plans.description}</p>
 
-					<div class="mt-6 space-y-2 font-mono text-[9px] sm:text-[10px]">
+					<div class="mt-5 space-y-2 font-mono text-[10px]">
 						<div
 							class="flex items-center justify-between rounded border border-line bg-page px-2.5 py-2 text-muted"
 						>
@@ -394,7 +394,7 @@
 
 				<!-- Results grid -->
 				<article
-					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6 lg:col-span-2"
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong sm:p-6 lg:col-span-2"
 				>
 					<div class="flex flex-wrap items-center gap-2.5">
 						<span
@@ -422,7 +422,7 @@
 
 				<!-- Query history -->
 				<article
-					class="group relative flex flex-col overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+					class="group relative flex flex-col overflow-hidden rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong sm:p-6"
 				>
 					<div class="flex items-center gap-2.5">
 						<span
@@ -448,7 +448,7 @@
 
 				<!-- Generated writes -->
 				<article
-					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong sm:p-6"
 				>
 					<div class="flex items-center gap-2.5">
 						<span
@@ -474,7 +474,7 @@
 
 				<!-- JSON viewer -->
 				<article
-					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong sm:p-6"
 				>
 					<div class="flex items-center gap-2.5">
 						<span
@@ -500,7 +500,7 @@
 
 				<!-- Export -->
 				<article
-					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-4 transition-colors hover:border-line-strong sm:p-6"
 				>
 					<div class="flex items-center gap-2.5">
 						<span
@@ -528,12 +528,12 @@
 	</section>
 
 	<!-- Developer experience -->
-	<section class="relative border-t border-line py-20 sm:py-28">
+	<section class="relative border-t border-line py-12 sm:py-28">
 		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
-			<div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
-				<div class="order-2 lg:order-1">
+			<div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
+				<div class="order-2 min-w-0 lg:order-1">
 					<div
-						class="relative overflow-hidden rounded-xl border border-line-strong bg-code-bg shadow-2xl shadow-black/20 dark:shadow-black/50"
+						class="relative min-w-0 overflow-hidden rounded-xl border border-line-strong bg-code-bg shadow-2xl shadow-black/20 dark:shadow-black/50"
 					>
 						<div class="flex h-10 items-center gap-2 border-b border-white/10 px-4">
 							<div class="flex items-center gap-1.5" aria-hidden="true">
@@ -546,20 +546,20 @@
 								<span class="truncate">Query 1 · Local Testing DB</span>
 							</span>
 							<span
-								class="ml-auto hidden rounded border border-white/10 px-2 py-0.5 font-mono text-[9px] text-code-ink/50 sm:block"
+								class="ml-auto hidden rounded border border-white/10 px-2 py-0.5 font-mono text-[10px] text-code-ink/50 sm:block"
 							>
 								Silent Mode
 							</span>
 						</div>
 
 						<pre
-							class="overflow-x-auto px-5 py-5 font-mono text-[11px] leading-7 text-code-ink sm:text-[12px]"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName,
+							class="max-w-full overflow-x-auto px-5 py-5 font-mono text-[10px] leading-6 text-code-ink sm:text-[12px] sm:leading-7"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName,
   Email, City
 <span class="text-sky-300">FROM</span> dbo.Customers
 <span class="text-sky-300">ORDER BY</span> Id;</code></pre>
 
 						<div
-							class="flex flex-wrap items-center justify-between gap-2 border-t border-white/10 px-4 py-2.5 font-mono text-[9px] text-code-ink/45"
+							class="flex flex-wrap items-center justify-between gap-2 border-t border-white/10 px-4 py-2.5 font-mono text-[10px] text-code-ink/45"
 						>
 							<span>24 rows · 3 ms</span>
 							<span class="inline-flex items-center gap-1.5 text-emerald-400/90">
@@ -569,14 +569,8 @@
 						</div>
 
 						<div class="border-t border-white/10 bg-white/[0.02] px-4 py-3.5">
-							<div class="grid grid-cols-4 gap-2 font-mono text-[9px] text-code-ink/40">
-								<span>Id</span>
-								<span>FullName</span>
-								<span>Email</span>
-								<span>City</span>
-							</div>
 							<div
-								class="mt-2 truncate rounded border border-white/10 bg-white/[0.03] px-2.5 py-2 font-mono text-[10px] text-code-ink/65"
+								class="break-words rounded border border-white/10 bg-white/[0.03] px-2.5 py-2 font-mono text-[10px] leading-5 text-code-ink/65"
 							>
 								1 · Nova Ardiansyah · admin@novaardiansyah.id · Tangerang Selatan
 							</div>
@@ -589,7 +583,7 @@
 						{content.developer.eyebrow}
 					</p>
 					<h2
-						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+						class="mt-4 text-balance text-[1.75rem] font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
 					>
 						{content.developer.title}
 					</h2>
@@ -597,7 +591,7 @@
 						{content.developer.description}
 					</p>
 
-					<ol class="mt-8 space-y-6">
+					<ol class="mt-6 space-y-5 sm:mt-8 sm:space-y-6">
 						{#each content.developer.steps as step, index}
 							<li class="flex gap-4">
 								<span
@@ -618,18 +612,18 @@
 	</section>
 
 	<!-- Architecture -->
-	<section class="relative border-y border-line bg-surface py-20 sm:py-28">
+	<section class="relative border-y border-line bg-surface py-12 sm:py-28">
 		<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
 			<div class="grid-lines absolute inset-0 opacity-20"></div>
 		</div>
 		<div class="relative mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
-			<div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
+			<div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
 				<div>
 					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
 						{content.architecture.eyebrow}
 					</p>
 					<h2
-						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+						class="mt-4 text-balance text-[1.75rem] font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
 					>
 						{content.architecture.title}
 					</h2>
@@ -638,7 +632,7 @@
 					</p>
 
 					<dl
-						class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line"
+						class="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line sm:mt-8"
 					>
 						{#each content.architecture.stats as stat}
 							<div class="bg-page px-4 py-4">
@@ -649,7 +643,7 @@
 							</div>
 						{/each}
 					</dl>
-					<p class="mt-4 max-w-lg text-[11px] leading-5 text-faint">
+					<p class="mt-4 max-w-lg text-xs leading-5 text-faint">
 						{content.architecture.footnote}
 					</p>
 				</div>
@@ -658,11 +652,11 @@
 					<div class="space-y-2">
 						{#each content.architecture.layers as layer, index}
 							<div class="rounded-lg border border-line bg-surface px-4 py-3">
-								<div class="flex items-center justify-between gap-4">
+								<div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
 									<span class="text-[10px] uppercase tracking-[0.14em] text-faint">
 										{layer.label}
 									</span>
-									<span class="text-right font-mono text-[9px] text-muted sm:text-[10px]">
+									<span class="break-words font-mono text-[10px] leading-4 text-muted sm:text-right">
 										{layer.detail}
 									</span>
 								</div>
@@ -676,11 +670,11 @@
 					</div>
 
 					<div class="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
-						<span class="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-faint">
+						<span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-faint">
 							<Icon name="zap" class="h-3 w-3 text-accent" />
 							Async TDS
 						</span>
-						<span class="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-faint">
+						<span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-faint">
 							<Icon name="hard-drive" class="h-3 w-3 text-accent" />
 							Local WAL
 						</span>
@@ -691,23 +685,23 @@
 	</section>
 
 	<!-- Privacy & security -->
-	<section id="security" class="relative scroll-mt-24 py-20 sm:py-28">
+	<section id="security" class="relative scroll-mt-24 py-12 sm:py-28">
 		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
 			<div
-				class="reveal relative overflow-hidden rounded-2xl border border-line bg-surface p-6 sm:p-10 lg:p-14"
+				class="reveal relative overflow-hidden rounded-2xl border border-line bg-surface p-5 sm:p-10 lg:p-14"
 			>
 				<div
 					class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent-soft blur-3xl"
 					aria-hidden="true"
 				></div>
 
-				<div class="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+				<div class="relative grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
 					<div>
 						<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
 							{content.security.eyebrow}
 						</p>
 						<h2
-							class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl"
+							class="mt-4 text-balance text-[1.75rem] font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
 						>
 							{content.security.title}
 						</h2>
@@ -718,7 +712,7 @@
 						<div class="mt-6 flex flex-wrap gap-2">
 							{#each content.security.badges as badge}
 								<span
-									class="inline-flex items-center gap-1.5 rounded-full border border-line bg-page px-3 py-1 text-[11px] text-muted"
+									class="inline-flex items-center gap-1.5 rounded-full border border-line bg-page px-3 py-1 text-xs text-muted"
 								>
 									<Icon name="check" class="h-3 w-3 text-accent" />
 									{badge}
@@ -730,7 +724,7 @@
 							href={links.github}
 							target="_blank"
 							rel="noreferrer"
-							class="group mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent"
+							class="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent sm:mt-8"
 						>
 							{content.nav.github}
 							<Icon
@@ -740,16 +734,16 @@
 						</a>
 					</div>
 
-					<div class="grid gap-3 sm:grid-cols-2">
+					<div class="grid gap-4 sm:grid-cols-2">
 						{#each content.security.items as item, index}
-							<div class="rounded-lg border border-line bg-page p-5">
+							<div class="rounded-lg border border-line bg-page p-4 sm:p-5">
 								<span
 									class="flex h-8 w-8 items-center justify-center rounded-md border border-line bg-surface text-accent"
 								>
 									<Icon name={securityIcons[index]} class="h-4 w-4" />
 								</span>
 								<h3 class="mt-4 text-sm font-semibold text-ink">{item.title}</h3>
-								<p class="mt-2 text-xs leading-5 text-muted">{item.description}</p>
+								<p class="mt-2 break-words text-xs leading-5 text-muted">{item.description}</p>
 							</div>
 						{/each}
 					</div>
@@ -759,10 +753,10 @@
 	</section>
 
 	<!-- Download -->
-	<section id="download" class="relative scroll-mt-24 border-t border-line py-20 sm:py-28">
+	<section id="download" class="relative scroll-mt-24 border-t border-line py-12 sm:py-28">
 		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
 			<div
-				class="reveal relative overflow-hidden rounded-2xl border border-line bg-surface px-6 py-12 text-center sm:px-10 sm:py-16"
+				class="reveal relative overflow-hidden rounded-2xl border border-line bg-surface px-5 py-8 text-center sm:px-10 sm:py-16"
 			>
 				<div class="hero-halo pointer-events-none absolute inset-0" aria-hidden="true"></div>
 				<div class="relative mx-auto max-w-2xl">
@@ -770,7 +764,7 @@
 						{content.download.eyebrow}
 					</p>
 					<h2
-						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-5xl lg:leading-[1.05]"
+						class="mt-4 text-balance text-[1.75rem] font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
 					>
 						{content.download.title}
 					</h2>
@@ -778,7 +772,7 @@
 						{content.download.description}
 					</p>
 
-					<div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+					<div class="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row">
 						<a
 							href="#platforms"
 							class="group inline-flex w-full items-center justify-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-semibold text-page transition-opacity hover:opacity-90 sm:w-auto"
@@ -803,35 +797,45 @@
 
 				<div
 					id="platforms"
-					class="relative mt-12 grid scroll-mt-28 gap-3 text-left sm:grid-cols-2 lg:grid-cols-4"
+					class="relative mt-10 grid scroll-mt-28 gap-4 text-left sm:mt-12 sm:grid-cols-2 lg:grid-cols-4"
 				>
 					{#each content.download.platforms as platform}
 						<a
 							href={links.downloads[platform.id]}
 							target="_blank"
 							rel="noreferrer"
-							class="group flex flex-col rounded-lg border border-line bg-page p-4 transition-colors hover:border-line-strong hover:bg-surface-muted"
+							class="group flex items-center gap-3 rounded-lg border border-line bg-page p-4 transition-colors hover:border-line-strong hover:bg-surface-muted"
 						>
-							<div class="flex items-center justify-between">
-								<Icon name={platformIcon(platform.id)} class="h-4 w-4 text-accent" />
-								<span class="font-mono text-[9px] uppercase tracking-[0.08em] text-faint">
+							<span
+								class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-line bg-surface text-accent"
+							>
+								<Icon name={platformIcon(platform.id)} class="h-4 w-4" />
+							</span>
+							<span class="min-w-0 flex-1">
+								<span class="block text-sm font-semibold leading-5 text-ink">
+									{platform.name}
+								</span>
+								<span class="mt-0.5 block text-xs leading-5 text-muted">
+									{platform.detail}
+								</span>
+							</span>
+							<span class="flex shrink-0 flex-col items-end gap-1.5 text-right">
+								<span class="font-mono text-[10px] uppercase tracking-[0.08em] text-faint">
 									{platform.format}
 								</span>
-							</div>
-							<span class="mt-7 block text-sm font-semibold text-ink">{platform.name}</span>
-							<span class="mt-0.5 block text-xs text-muted">{platform.detail}</span>
-							<span class="mt-3 inline-flex items-center gap-1 text-[11px] font-medium text-accent">
-								{content.nav.download}
-								<Icon
-									name="download"
-									class="h-3 w-3 transition-transform group-hover:translate-y-0.5"
-								/>
+								<span class="inline-flex items-center gap-1 text-xs font-medium text-accent">
+									{content.nav.download}
+									<Icon
+										name="download"
+										class="h-3 w-3 transition-transform group-hover:translate-y-0.5"
+									/>
+								</span>
 							</span>
 						</a>
 					{/each}
 				</div>
 
-				<div class="relative mx-auto mt-8 max-w-3xl space-y-2 text-[11px] leading-5 text-faint">
+				<div class="relative mx-auto mt-6 max-w-3xl space-y-2 text-xs leading-5 text-faint sm:mt-8">
 					<p>{content.download.note}</p>
 					<p>
 						{content.download.source}

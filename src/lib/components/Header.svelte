@@ -7,6 +7,19 @@
 
 	let isOpen = $state(false);
 
+	$effect(() => {
+		if (!isOpen) {
+			return;
+		}
+
+		const previous = document.body.style.overflow;
+		document.body.style.overflow = 'hidden';
+
+		return () => {
+			document.body.style.overflow = previous;
+		};
+	});
+
 	function closeMenu() {
 		isOpen = false;
 	}
@@ -218,7 +231,7 @@
 
 					<a
 						href="/#download"
-						class="inline-flex items-center gap-1.5 rounded-md bg-ink px-4 py-2 text-xs font-semibold text-page"
+						class="inline-flex items-center gap-1.5 rounded-md bg-ink px-4 py-2 text-[13px] font-semibold text-page"
 						onclick={closeMenu}
 					>
 						{content.nav.download}

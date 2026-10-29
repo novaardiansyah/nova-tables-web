@@ -124,6 +124,8 @@ export interface LandingCopy {
 		columns: { title: string; links: { label: string; href: string }[] }[];
 		builtWith: string;
 		copyright: string;
+		version: string;
+		license: string;
 	};
 }
 
@@ -395,7 +397,9 @@ export const landingContent: Record<Lang, LandingCopy> = {
 				}
 			],
 			builtWith: 'Built with Tauri and Rust.',
-			copyright: '© 2026 Nova Ardiansyah. All rights reserved.'
+			copyright: '© 2026 Nova Ardiansyah. All rights reserved.',
+			version: 'v2.1.0',
+			license: 'MIT License'
 		}
 	},
 	id: {
@@ -665,7 +669,9 @@ export const landingContent: Record<Lang, LandingCopy> = {
 				}
 			],
 			builtWith: 'Dibangun dengan Tauri dan Rust.',
-			copyright: '© 2026 Nova Ardiansyah. Hak cipta dilindungi.'
+			copyright: '© 2026 Nova Ardiansyah. Hak cipta dilindungi.',
+			version: 'v2.1.0',
+			license: 'Lisensi MIT'
 		}
 	}
 };
