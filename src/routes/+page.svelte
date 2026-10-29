@@ -11,16 +11,64 @@
 			description: t('features.connections.description', appState.lang)
 		},
 		{
+			src: '/demo/connections-selection.png',
+			alt: 'Connection selection',
+			title: t('features.connections.title', appState.lang),
+			description: t('features.connections.selection', appState.lang)
+		},
+		{
+			src: '/demo/export-connections.png',
+			alt: 'Export connections',
+			title: t('features.connections.title', appState.lang),
+			description: t('features.connections.export', appState.lang)
+		},
+		{
+			src: '/demo/import-connections.png',
+			alt: 'Import connections',
+			title: t('features.connections.title', appState.lang),
+			description: t('features.connections.import', appState.lang)
+		},
+		{
+			src: '/demo/new-connection.png',
+			alt: 'New connection screen',
+			title: t('features.connections.title', appState.lang),
+			description: t('features.connections.new', appState.lang)
+		},
+		{
 			src: '/demo/cell-editing.png',
 			alt: 'Cell editing screen',
 			title: t('features.queries.title', appState.lang),
 			description: t('features.queries.description', appState.lang)
 		},
 		{
+			src: '/demo/changes.png',
+			alt: 'Generated UPDATE statements',
+			title: t('features.queries.title', appState.lang),
+			description: t('features.queries.changes', appState.lang)
+		},
+		{
 			src: '/demo/json-viewer.png',
 			alt: 'JSON viewer screen',
 			title: t('features.export.title', appState.lang),
 			description: t('features.export.description', appState.lang)
+		},
+		{
+			src: '/demo/cell-menu.png',
+			alt: 'Cell context menu',
+			title: t('features.queries.title', appState.lang),
+			description: t('features.queries.cellMenu', appState.lang)
+		},
+		{
+			src: '/demo/table-menu.png',
+			alt: 'Table context menu',
+			title: t('features.table.title', appState.lang),
+			description: t('features.table.tableMenu', appState.lang)
+		},
+		{
+			src: '/demo/settings.png',
+			alt: 'Settings dialog',
+			title: t('features.theme.title', appState.lang),
+			description: t('features.theme.settings', appState.lang)
 		}
 	]);
 
@@ -86,7 +134,7 @@
 				<div class="relative grid grid-cols-2 gap-3 md:gap-4">
 					{#each screenshots as screenshot, i}
 						<div
-							class="group relative w-full overflow-hidden rounded-xl border border-paper-border bg-white shadow-sm shadow-pine-900/5 dark:border-white/10 dark:bg-surface-dark-card dark:shadow-black/40 {i === 0
+							class="group relative w-full overflow-hidden rounded-xl border border-paper-border bg-white shadow-sm shadow-pine-900/5 dark:border-white/10 dark:bg-surface-dark-card dark:shadow-black/40 {i % 2 === 0
 								? 'col-span-2 aspect-[21/9]'
 								: 'aspect-[16/10]'}"
 						>

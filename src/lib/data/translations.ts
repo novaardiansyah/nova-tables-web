@@ -17,16 +17,24 @@ export type TranslationKey =
 	| 'features.title'
 	| 'features.connections.title'
 	| 'features.connections.description'
+	| 'features.connections.selection'
+	| 'features.connections.export'
+	| 'features.connections.import'
+	| 'features.connections.new'
 	| 'features.queries.title'
 	| 'features.queries.description'
+	| 'features.queries.changes'
+	| 'features.queries.cellMenu'
 	| 'features.table.title'
 	| 'features.table.description'
+	| 'features.table.tableMenu'
 	| 'features.export.title'
 	| 'features.export.description'
 	| 'features.security.title'
 	| 'features.security.description'
 	| 'features.theme.title'
 	| 'features.theme.description'
+	| 'features.theme.settings'
 	| 'features.tech.title'
 	| 'features.tech.items.electron'
 	| 'features.tech.items.monaco'
@@ -83,16 +91,24 @@ export const translations: Record<Lang, Record<TranslationKey, string>> = {
 		'features.title': 'Features',
 		'features.connections.title': 'Connection Management',
 		'features.connections.description': 'Organize all SQL Server connections with environment badges and collapsible folders.',
+		'features.connections.selection': 'Select several connections for bulk actions.',
+		'features.connections.export': 'Export connections and their folders as one encrypted file.',
+		'features.connections.import': 'Import the file on another machine with the same password.',
+		'features.connections.new': 'A new connection, tested before it is saved.',
 		'features.queries.title': 'Query Execution',
 		'features.queries.description': 'Write and run queries with syntax highlighting, auto-completion, and query execution modes.',
+		'features.queries.changes': 'Ready-to-run UPDATE statements from your edits.',
+		'features.queries.cellMenu': 'Right-click a cell for edit, copy and delete actions.',
 		'features.table.title': 'Table Design',
 		'features.table.description': 'Design and alter tables visually with column drag-and-drop reordering and searchable data types.',
+		'features.table.tableMenu': 'Right-click a table for object actions.',
 		'features.export.title': 'Export Results',
 		'features.export.description': 'Export results directly to RFC 4180 CSV or formatted JSON, and review query history anytime.',
 		'features.security.title': 'Security & Privacy',
 		'features.security.description': 'Your saved connections live on your computer only, and passwords are protected by your operating system\'s own secure storage.',
 		'features.theme.title': 'Dark & Light Themes',
 		'features.theme.description': 'Switch between dark and light themes, and customize fonts and editor typography.',
+		'features.theme.settings': 'Customise themes, fonts and editor typography.',
 		'features.tech.title': 'Tech Stack',
 		'features.tech.items.electron': 'Electron 30 - Desktop application framework',
 		'features.tech.items.monaco': 'Monaco Editor - Editor engine behind VS Code',
@@ -150,16 +166,24 @@ export const translations: Record<Lang, Record<TranslationKey, string>> = {
 		'features.title': 'Fitur',
 		'features.connections.title': 'Manajemen Koneksi',
 		'features.connections.description': 'Kelola semua koneksi SQL Server dengan badge lingkungan dan folder yang dapat dikompres.',
+		'features.connections.selection': 'Pilih beberapa koneksi untuk tindakan massal.',
+		'features.connections.export': 'Ekspor koneksi dan folder mereka sebagai satu file terenkripsi.',
+		'features.connections.import': 'Impor file pada mesin lain dengan kata sandi yang sama.',
+		'features.connections.new': 'Koneksi baru, diuji sebelum disimpan.',
 		'features.queries.title': 'Eksekusi Kueri',
 		'features.queries.description': 'Tulis dan jalankan kueri dengan penyorotan sintaks, auto-completion, dan mode eksekusi kueri.',
+		'features.queries.changes': 'Pernyataan UPDATE siap pakai yang dihasilkan dari hasil edit Anda.',
+		'features.queries.cellMenu': 'Klik kanan sel untuk aksi edit, salin, dan hapus.',
 		'features.table.title': 'Desain Tabel',
 		'features.table.description': 'Desain dan ubah tabel secara visual dengan reordering kolom drag-and-drop dan tipe data yang dapat dicari.',
+		'features.table.tableMenu': 'Klik kanan tabel untuk aksi objek.',
 		'features.export.title': 'Ekspor Hasil',
 		'features.export.description': 'Ekspor hasil langsung ke RFC 4180 CSV atau JSON yang diformat, dan tinjau riwayat kueri kapan saja.',
 		'features.security.title': 'Keamanan & Privasi',
 		'features.security.description': 'Koneksi yang tersimpan hanya ada di komputer Anda, dan kata sandi dilindungi oleh penyimpanan aman sistem operasi Anda.',
 		'features.theme.title': 'Tema Gelap & Terang',
 		'features.theme.description': 'Beralih antara tema gelap dan terang, dan kustomisasi font serta tipografi editor.',
+		'features.theme.settings': 'Kustomisasi tema, font, dan tipografi editor.',
 		'features.tech.title': 'Stack Teknologi',
 		'features.tech.items.electron': 'Electron 30 - Framework aplikasi desktop',
 		'features.tech.items.monaco': 'Monaco Editor - Mesin editor di balik VS Code',
