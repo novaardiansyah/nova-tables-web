@@ -17,13 +17,13 @@ Nova Tables is made for people who work with Microsoft SQL Server every day and 
 ## Screenshots
 
 ### Your connections, in one place
-![Connections](./static/demo/connections.png)
+![Connections](./static/demo/connections.webp)
 
 ### Edit a whole block of cells at once
-![Editing cells](./static/demo/cell-editing.png)
+![Editing cells](./static/demo/cell-editing.webp)
 
 ### Read a row as a JSON record
-![JSON viewer](./static/demo/json-viewer.png)
+![JSON viewer](./static/demo/json-viewer.webp)
 
 ## Dazzling Tech Stack
 

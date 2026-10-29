@@ -1,226 +1,858 @@
 <script lang="ts">
-	import { Icon, profile } from '#lib';
-	import { appState } from '#lib/stores/app';
-	import { t } from '#lib/data/translations';
+	import { Icon, appState } from '#lib';
+	import { landingContent, links, type DownloadPlatform } from '#lib/data/landing';
 
-	const screenshots = $derived([
-		{
-			src: '/demo/connections.png',
-			alt: 'Connections screen',
-			title: t('features.connections.title', appState.lang),
-			description: t('features.connections.description', appState.lang)
-		},
-		{
-			src: '/demo/connections-selection.png',
-			alt: 'Connection selection',
-			title: t('features.connections.title', appState.lang),
-			description: t('features.connections.selection', appState.lang)
-		},
-		{
-			src: '/demo/export-connections.png',
-			alt: 'Export connections',
-			title: t('features.connections.title', appState.lang),
-			description: t('features.connections.export', appState.lang)
-		},
-		{
-			src: '/demo/import-connections.png',
-			alt: 'Import connections',
-			title: t('features.connections.title', appState.lang),
-			description: t('features.connections.import', appState.lang)
-		},
-		{
-			src: '/demo/new-connection.png',
-			alt: 'New connection screen',
-			title: t('features.connections.title', appState.lang),
-			description: t('features.connections.new', appState.lang)
-		},
-		{
-			src: '/demo/cell-editing.png',
-			alt: 'Cell editing screen',
-			title: t('features.queries.title', appState.lang),
-			description: t('features.queries.description', appState.lang)
-		},
-		{
-			src: '/demo/changes.png',
-			alt: 'Generated UPDATE statements',
-			title: t('features.queries.title', appState.lang),
-			description: t('features.queries.changes', appState.lang)
-		},
-		{
-			src: '/demo/json-viewer.png',
-			alt: 'JSON viewer screen',
-			title: t('features.export.title', appState.lang),
-			description: t('features.export.description', appState.lang)
-		},
-		{
-			src: '/demo/cell-menu.png',
-			alt: 'Cell context menu',
-			title: t('features.queries.title', appState.lang),
-			description: t('features.queries.cellMenu', appState.lang)
-		},
-		{
-			src: '/demo/table-menu.png',
-			alt: 'Table context menu',
-			title: t('features.table.title', appState.lang),
-			description: t('features.table.tableMenu', appState.lang)
-		},
-		{
-			src: '/demo/settings.png',
-			alt: 'Settings dialog',
-			title: t('features.theme.title', appState.lang),
-			description: t('features.theme.settings', appState.lang)
-		}
-	]);
+	const content = $derived(landingContent[appState.lang]);
+	const showcase = $derived(content.showcase.items);
 
-	const features = $derived([
-		{ icon: 'database', title: t('features.connections.title', appState.lang), description: t('features.connections.description', appState.lang) },
-		{ icon: 'code', title: t('features.queries.title', appState.lang), description: t('features.queries.description', appState.lang) },
-		{ icon: 'table', title: t('features.table.title', appState.lang), description: t('features.table.description', appState.lang) },
-		{ icon: 'download', title: t('features.export.title', appState.lang), description: t('features.export.description', appState.lang) },
-		{ icon: 'shield', title: t('features.security.title', appState.lang), description: t('features.security.description', appState.lang) },
-		{ icon: 'sun', title: t('features.theme.title', appState.lang), description: t('features.theme.description', appState.lang) }
-	]);
+	let activeShowcase = $state(0);
+	const activeItem = $derived(showcase[activeShowcase]);
 
-	const techItems = $derived([
-		{ key: 'database', label: t('features.tech.items.electron', appState.lang) },
-		{ key: 'code', label: t('features.tech.items.monaco', appState.lang) },
-		{ key: 'device', label: t('features.tech.items.sqlserver', appState.lang) },
-		{ key: 'shield', label: t('features.tech.items.tailwind', appState.lang) },
-		{ key: 'layers', label: t('features.tech.items.vite', appState.lang) }
-	]);
+	const securityIcons = ['hard-drive', 'lock', 'key', 'shield'];
+
+	function platformIcon(id: DownloadPlatform) {
+		return id === 'windows' ? 'device' : 'terminal';
+	}
 </script>
 
 <svelte:head>
-	<title>{profile.name} - Nova Tables</title>
-	<meta name="description" content={t('hero.subtitle', appState.lang)} />
+	<title>Nova Tables - Native desktop SQL client for Microsoft SQL Server</title>
+	<meta name="description" content={content.hero.description} />
+	<meta name="theme-color" content="#060907" />
 </svelte:head>
 
-<div class="relative min-h-screen overflow-hidden bg-paper-base text-pine-950 dark:bg-surface-dark-base dark:text-white transition-colors duration-300">
+<div class="relative overflow-x-clip bg-page text-ink">
+	<div class="pointer-events-none absolute inset-x-0 top-0 h-[980px] overflow-hidden" aria-hidden="true">
+		<div class="hero-halo absolute inset-0"></div>
+		<div class="grid-lines mask-fade-b absolute inset-0 opacity-40"></div>
+	</div>
 
-	<!-- Hero Section -->
-	<section class="relative">
-		<div class="pointer-events-none absolute -top-48 right-0 h-[34rem] w-[34rem] rounded-full bg-sage-300/40 blur-3xl dark:bg-sage-500/10"></div>
-		<div class="pointer-events-none absolute -bottom-48 left-0 h-[26rem] w-[26rem] rounded-full bg-pine-500/10 blur-3xl dark:bg-pine-500/10"></div>
-
-		<div class="relative mx-auto grid max-w-7xl items-center gap-14 px-4 py-16 md:py-24 lg:grid-cols-2 lg:gap-10 lg:py-32">
-			<div>
-				<h1 class="text-5xl font-bold leading-[1.02] tracking-tight text-pine-950 sm:text-6xl lg:text-7xl dark:text-white">
-					{t('hero.title', appState.lang)}
-				</h1>
-				<p class="mt-6 max-w-xl text-lg text-pine-700 md:text-xl dark:text-sage-300">
-					{t('hero.subtitle', appState.lang)}
-				</p>
-				<div class="mt-8 flex flex-wrap items-center gap-3">
-					<a
-						href={t('hero.url')}
-						target="_blank"
-						rel="noreferrer"
-						class="inline-flex items-center gap-2 rounded-full bg-pine-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-pine-900/20 transition-colors hover:bg-pine-800 dark:bg-sage-400 dark:text-pine-950 dark:shadow-none dark:hover:bg-sage-300"
-					>
-						{t('hero.cta')}
-						<Icon name="external-link" class="h-4 w-4" />
-					</a>
-					<a
-						href="#features"
-						class="inline-flex items-center rounded-full border border-paper-border bg-white/60 px-6 py-3 text-sm font-semibold text-pine-800 transition-colors hover:bg-white dark:border-white/15 dark:bg-white/5 dark:text-sage-200 dark:hover:bg-white/10"
-					>
-						{t('features.title', appState.lang)}
-					</a>
-				</div>
+	<!-- Hero -->
+	<section class="relative pt-20 sm:pt-24 lg:pt-28" aria-labelledby="hero-heading">
+		<div class="mx-auto w-full max-w-5xl px-5 text-center sm:px-6">
+			<div
+				class="animate-rise inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-line bg-surface/70 py-1.5 pl-1.5 pr-3 text-[11px] font-medium text-muted backdrop-blur-sm sm:text-xs"
+			>
+				<span class="flex h-5 w-5 items-center justify-center rounded-full bg-accent-soft text-accent">
+					<Icon name="database" class="h-3 w-3" />
+				</span>
+				{content.hero.badge}
+				<span class="hidden h-3 w-px bg-line-strong sm:block"></span>
+				<span class="hidden font-mono text-[10px] text-faint sm:block">v2.1.0</span>
 			</div>
 
-			<div class="relative">
-				<div class="pointer-events-none absolute -inset-6 rounded-[2rem] bg-gradient-to-tr from-sage-400/25 via-transparent to-pine-500/25 blur-2xl dark:from-sage-500/10 dark:to-pine-500/10"></div>
-				<div class="relative grid grid-cols-2 gap-3 md:gap-4">
-					{#each screenshots as screenshot, i}
+			<h1
+				id="hero-heading"
+				class="animate-rise-delayed mt-7 text-balance text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.045em] text-ink sm:text-6xl lg:text-[4.4rem]"
+			>
+				{content.hero.titleLead}
+				<span class="block text-accent">{content.hero.titleAccent}</span>
+			</h1>
+
+			<p
+				class="animate-rise-delayed mx-auto mt-6 max-w-2xl text-balance text-base leading-7 text-muted sm:text-lg"
+			>
+				{content.hero.description}
+			</p>
+
+			<div class="animate-rise-delayed mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+				<a
+					href="#download"
+					class="group inline-flex w-full items-center justify-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-semibold text-page transition-opacity hover:opacity-90 sm:w-auto"
+				>
+					{content.hero.primaryCta}
+					<Icon
+						name="arrow-right"
+						class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+					/>
+				</a>
+				<a
+					href={links.github}
+					target="_blank"
+					rel="noreferrer"
+					class="inline-flex w-full items-center justify-center gap-2 rounded-md border border-line bg-surface/60 px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-surface-muted sm:w-auto"
+				>
+					<Icon name="github" class="h-4 w-4" />
+					{content.hero.secondaryCta}
+				</a>
+			</div>
+
+			<p class="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] text-faint">
+				<Icon name="device" class="h-3.5 w-3.5" />
+				{content.hero.platforms}
+			</p>
+		</div>
+
+		<div class="relative mx-auto mt-14 w-full max-w-6xl px-4 sm:mt-16 sm:px-6">
+			<div
+				class="pointer-events-none absolute inset-x-16 top-10 h-52 rounded-full bg-accent-soft blur-[110px]"
+				aria-hidden="true"
+			></div>
+			<figure
+				class="animate-rise-delayed relative overflow-hidden rounded-xl border border-line-strong bg-surface p-1.5 shadow-2xl shadow-black/25 dark:shadow-black/60"
+			>
+				<div class="overflow-hidden rounded-lg border border-line bg-surface-muted">
+					<div class="flex h-9 items-center gap-2 border-b border-line px-3.5">
+						<div class="flex items-center gap-1.5" aria-hidden="true">
+							<span class="h-2 w-2 rounded-full bg-[#ff5f57]/80"></span>
+							<span class="h-2 w-2 rounded-full bg-[#febc2e]/80"></span>
+							<span class="h-2 w-2 rounded-full bg-[#28c840]/80"></span>
+						</div>
 						<div
-							class="group relative w-full overflow-hidden rounded-xl border border-paper-border bg-white shadow-sm shadow-pine-900/5 dark:border-white/10 dark:bg-surface-dark-card dark:shadow-black/40 {i % 2 === 0
-								? 'col-span-2 aspect-[21/9]'
-								: 'aspect-[16/10]'}"
+							class="mx-auto flex min-w-0 items-center gap-1.5 text-[10px] font-medium text-faint sm:text-[11px]"
 						>
-							<img
-								src={screenshot.src}
-								alt={screenshot.alt}
-								class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-							/>
-							<div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-								<div>
-									<h3 class="font-semibold text-white">{screenshot.title}</h3>
-									<p class="mt-1 line-clamp-2 max-w-sm text-xs text-sage-200">{screenshot.description}</p>
-								</div>
-							</div>
+							<Icon name="database" class="h-3 w-3 shrink-0" />
+							<span class="truncate">Nova Tables</span>
+							<span class="text-line-strong">/</span>
+							<span class="truncate text-muted">Local Testing DB</span>
 						</div>
-					{/each}
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- About Section -->
-	<section class="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
-		<div>
-			<h2 class="text-3xl font-bold tracking-tight text-pine-950 md:text-4xl dark:text-white">{t('about.title', appState.lang)}</h2>
-			<p class="mt-5 text-base leading-relaxed text-pine-700 md:text-lg dark:text-sage-300">{t('about.description', appState.lang)}</p>
-			<div class="mt-8 rounded-2xl border border-paper-border bg-paper-subtle/70 p-6 dark:border-white/10 dark:bg-surface-dark-card">
-				<p class="text-sm font-semibold text-pine-900 dark:text-sage-100"><strong>{t('about.note', appState.lang)}</strong></p>
-				<p class="mt-1 text-sm leading-relaxed text-pine-700 dark:text-sage-300">{t('about.noteDetail', appState.lang)}</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- Features Section -->
-	<section id="features" class="relative border-y border-paper-border bg-paper-subtle/50 dark:border-white/10 dark:bg-surface-dark-card/40">
-		<div class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-			<div class="mb-12">
-				<h2 class="text-3xl font-bold tracking-tight text-pine-950 md:text-4xl dark:text-white">{t('features.title', appState.lang)}</h2>
-				<div class="mt-4 h-1 w-16 rounded-full bg-sage-500"></div>
-			</div>
-			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-				{#each features as feature}
-					<div class="group flex items-start gap-4 rounded-2xl border border-paper-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-sage-400 hover:shadow-lg hover:shadow-pine-900/5 dark:border-white/10 dark:bg-surface-dark-card dark:hover:border-sage-500/50 dark:hover:shadow-black/30">
-						<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sage-100 text-sage-600 transition-colors group-hover:bg-sage-500 group-hover:text-white dark:bg-sage-500/15 dark:text-sage-300 dark:group-hover:bg-sage-500 dark:group-hover:text-pine-950">
-							<Icon name={feature.icon} class="h-5 w-5" />
+						<span class="hidden font-mono text-[9px] uppercase tracking-[0.16em] text-faint sm:block">
+							MSSQL
 						</span>
-						<div>
-							<h3 class="text-base font-semibold text-pine-950 dark:text-white">{feature.title}</h3>
-							<p class="mt-1 text-sm leading-relaxed text-pine-700 dark:text-sage-300">{feature.description}</p>
-						</div>
+					</div>
+					<img
+						src="/demo/workspace.webp"
+						width="1440"
+						height="900"
+						alt={content.hero.imageAlt}
+						class="block h-auto w-full"
+						fetchpriority="high"
+						decoding="async"
+					/>
+				</div>
+			</figure>
+		</div>
+
+		<div class="relative mx-auto mt-10 w-full max-w-5xl px-5 sm:px-6">
+			<dl
+				class="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line lg:grid-cols-4"
+			>
+				{#each content.hero.stats as stat}
+					<div class="bg-page px-4 py-5 sm:px-5">
+						<dt class="font-display text-lg font-semibold tracking-tight text-ink sm:text-xl">
+							{stat.value}
+						</dt>
+						<dd class="mt-1 text-[10px] uppercase leading-4 tracking-[0.12em] text-faint sm:text-[11px]">
+							{stat.label}
+						</dd>
 					</div>
 				{/each}
+			</dl>
+		</div>
+	</section>
+
+	<!-- Product showcase -->
+	<section id="product" class="relative scroll-mt-24 py-20 sm:py-28">
+		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+				<div class="lg:sticky lg:top-24 lg:self-start">
+					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+						{content.showcase.eyebrow}
+					</p>
+					<h2
+						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+					>
+						{content.showcase.title}
+					</h2>
+					<p class="mt-5 max-w-md text-sm leading-6 text-muted sm:text-base sm:leading-7">
+						{content.showcase.description}
+					</p>
+
+					<div class="mt-8" role="tablist" aria-label="Product views">
+						{#each showcase as item, index}
+							<button
+								type="button"
+								role="tab"
+								id={`showcase-tab-${index}`}
+								aria-controls="showcase-panel"
+								aria-selected={activeShowcase === index}
+								class="group flex w-full items-start gap-4 border-t border-line px-1 py-4 text-left transition-colors {activeShowcase ===
+								index
+									? 'border-l-2 border-l-accent pl-3'
+									: 'hover:bg-surface/40'}"
+								onclick={() => (activeShowcase = index)}
+							>
+								<span
+									class="mt-0.5 font-mono text-[10px] {activeShowcase === index
+										? 'text-accent'
+										: 'text-faint'}"
+								>
+									0{index + 1}
+								</span>
+								<span class="min-w-0 flex-1">
+									<span
+										class="block text-sm font-semibold {activeShowcase === index
+											? 'text-ink'
+											: 'text-muted group-hover:text-ink'}"
+									>
+										{item.title}
+									</span>
+									<span class="mt-1 block text-xs leading-5 text-faint">
+										{item.label}
+									</span>
+								</span>
+								<Icon
+									name="arrow-up-right"
+									class="mt-0.5 h-3.5 w-3.5 shrink-0 {activeShowcase === index
+										? 'text-accent'
+										: 'text-faint opacity-0 transition-opacity group-hover:opacity-100'}"
+								/>
+							</button>
+						{/each}
+					</div>
+				</div>
+
+				<div
+					id="showcase-panel"
+					role="tabpanel"
+					aria-labelledby={`showcase-tab-${activeShowcase}`}
+				>
+					<figure
+						class="overflow-hidden rounded-xl border border-line-strong bg-surface p-1.5 shadow-xl shadow-black/10 dark:shadow-black/40"
+					>
+						<div class="overflow-hidden rounded-lg border border-line bg-surface-muted">
+							<div class="flex h-9 items-center gap-2 border-b border-line px-3.5">
+								<div class="flex items-center gap-1.5" aria-hidden="true">
+									<span class="h-2 w-2 rounded-full bg-[#ff5f57]/80"></span>
+									<span class="h-2 w-2 rounded-full bg-[#febc2e]/80"></span>
+									<span class="h-2 w-2 rounded-full bg-[#28c840]/80"></span>
+								</div>
+								<span class="mx-auto flex items-center gap-1.5 text-[10px] text-faint sm:text-[11px]">
+									<Icon name="database" class="h-3 w-3" />
+									{activeItem.label}
+								</span>
+								<span class="font-mono text-[9px] uppercase tracking-[0.16em] text-faint">v2.1.0</span>
+							</div>
+							<div class="relative aspect-[16/10]">
+								{#each showcase as item, index}
+									<img
+										src={item.image}
+										width="1440"
+										height="900"
+										alt={activeShowcase === index ? item.alt : ''}
+										aria-hidden={activeShowcase !== index}
+										loading={index === 0 ? 'eager' : 'lazy'}
+										decoding="async"
+										class="absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-300 {activeShowcase ===
+										index
+											? 'opacity-100'
+											: 'opacity-0'}"
+									/>
+								{/each}
+							</div>
+						</div>
+					</figure>
+
+					<div class="mt-5 min-h-14">
+						<p class="text-sm leading-6 text-muted">{activeItem.description}</p>
+						<ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+							{#each activeItem.bullets as bullet}
+								<li class="flex items-center gap-1.5 text-[11px] text-faint">
+									<Icon name="check" class="h-3 w-3 text-accent" />
+									{bullet}
+								</li>
+							{/each}
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Tech Stack Section -->
-	<section class="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
-		<div class="mx-auto max-w-2xl text-center">
-			<h2 class="text-3xl font-bold tracking-tight text-pine-950 md:text-4xl dark:text-white">{t('features.tech.title', appState.lang)}</h2>
-		</div>
-		<div class="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-3">
-			{#each techItems as item}
-				<div class="flex items-center gap-2 rounded-full border border-paper-border bg-white px-4 py-2 text-sm font-medium text-pine-800 shadow-sm dark:border-white/10 dark:bg-surface-dark-card dark:text-sage-200">
-					<Icon name={item.key} class="h-4 w-4 text-sage-600 dark:text-sage-300" />
-					<span>{item.label}</span>
+	<!-- Value proposition -->
+	<section id="features" class="relative scroll-mt-24 border-t border-line py-20 sm:py-28">
+		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+				<div class="lg:sticky lg:top-24 lg:self-start">
+					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+						{content.value.eyebrow}
+					</p>
+					<h2
+						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+					>
+						{content.value.title}
+					</h2>
+					<p class="mt-5 max-w-md text-sm leading-6 text-muted sm:text-base sm:leading-7">
+						{content.value.description}
+					</p>
+					<blockquote class="mt-8 border-l border-accent/40 pl-5">
+						<p class="text-sm leading-6 text-ink">“{content.value.quote}”</p>
+						<footer class="mt-2 text-[11px] uppercase tracking-[0.12em] text-faint">
+							— {content.value.quoteSource}
+						</footer>
+					</blockquote>
 				</div>
-			{/each}
+
+				<ol class="reveal border-y border-line">
+					{#each content.value.items as item}
+						<li class="grid gap-4 border-b border-line py-8 last:border-b-0 sm:grid-cols-[auto_1fr] sm:gap-8">
+							<span class="font-mono text-[11px] text-accent">{item.number}</span>
+							<div>
+								<h3 class="text-lg font-semibold tracking-tight text-ink">{item.title}</h3>
+								<p class="mt-2 max-w-lg text-sm leading-6 text-muted">{item.description}</p>
+							</div>
+						</li>
+					{/each}
+				</ol>
+			</div>
 		</div>
 	</section>
 
-	<!-- Closing CTA -->
-	<section class="relative mx-auto max-w-7xl px-4 pb-20">
-		<div class="relative overflow-hidden rounded-3xl border border-paper-border bg-gradient-to-br from-sage-50 via-paper-subtle to-white px-6 py-14 text-center md:px-16 dark:border-white/10 dark:from-surface-dark-card dark:via-surface-dark-subtle dark:to-surface-dark-base">
-			<div class="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-sage-400/20 blur-3xl dark:bg-sage-500/10"></div>
-			<h2 class="relative text-3xl font-bold tracking-tight text-pine-950 md:text-4xl dark:text-white">{t('hero.title', appState.lang)}</h2>
-			<p class="relative mx-auto mt-4 max-w-xl text-base text-pine-700 dark:text-sage-300">{t('hero.subtitle', appState.lang)}</p>
-			<a
-				href={t('hero.url')}
-				target="_blank"
-				rel="noreferrer"
-				class="relative mt-8 inline-flex items-center gap-2 rounded-full bg-pine-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-pine-900/20 transition-colors hover:bg-pine-800 dark:bg-sage-400 dark:text-pine-950 dark:shadow-none dark:hover:bg-sage-300"
+	<!-- Capabilities -->
+	<section id="capabilities" class="relative scroll-mt-24 border-t border-line py-20 sm:py-28">
+		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+					{content.capabilities.eyebrow}
+				</p>
+				<h2
+					class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+				>
+					{content.capabilities.title}
+				</h2>
+				<p class="mt-5 text-sm leading-6 text-muted sm:text-base sm:leading-7">
+					{content.capabilities.description}
+				</p>
+			</div>
+
+			<div class="reveal mt-12 grid gap-4 lg:grid-cols-3">
+				<!-- Editor -->
+				<article
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6 lg:col-span-2"
+				>
+					<div class="grid gap-6 sm:grid-cols-[1fr_1.05fr] sm:items-center">
+						<div>
+							<div class="flex items-center gap-2.5">
+								<span
+									class="flex h-7 w-7 items-center justify-center rounded-md border border-line bg-page text-accent"
+								>
+									<Icon name="code" class="h-3.5 w-3.5" />
+								</span>
+								<h3 class="text-sm font-semibold text-ink">{content.capabilities.editor.title}</h3>
+							</div>
+							<p class="mt-3 text-sm leading-6 text-muted">
+								{content.capabilities.editor.description}
+							</p>
+							<p class="mt-4 font-mono text-[10px] uppercase tracking-[0.1em] text-faint">
+								{content.capabilities.editor.footnote}
+							</p>
+						</div>
+
+						<div class="overflow-hidden rounded-lg border border-white/10 bg-code-bg shadow-inner">
+							<div class="flex items-center justify-between border-b border-white/10 px-3.5 py-2">
+								<span class="flex items-center gap-1.5 font-mono text-[9px] text-code-ink/50">
+									<span class="h-1.5 w-1.5 rounded-full bg-emerald-400/80"></span>
+									Query 1
+								</span>
+								<span class="rounded border border-white/10 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-code-ink/50">
+									Ctrl R
+								</span>
+							</div>
+							<pre
+								class="overflow-x-auto px-3.5 py-3 font-mono text-[10px] leading-6 text-code-ink sm:text-[11px]"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName, Email, City, Country, CreatedAt
+<span class="text-sky-300">FROM</span> dbo.Customers
+<span class="text-sky-300">ORDER BY</span> Id;</code></pre>
+							<div
+								class="flex items-center justify-between border-t border-white/10 px-3.5 py-2 font-mono text-[9px] text-code-ink/40"
+							>
+								<span>24 rows · 3 ms</span>
+								<span class="text-emerald-400/90">Query succeeded</span>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<!-- Execution plans -->
+				<article
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+				>
+					<div class="flex items-center gap-2.5">
+						<span
+							class="flex h-7 w-7 items-center justify-center rounded-md border border-line bg-page text-accent"
+						>
+							<Icon name="layers" class="h-3.5 w-3.5" />
+						</span>
+						<h3 class="text-sm font-semibold text-ink">{content.capabilities.plans.title}</h3>
+					</div>
+					<p class="mt-3 text-sm leading-6 text-muted">{content.capabilities.plans.description}</p>
+
+					<div class="mt-6 space-y-2 font-mono text-[9px] sm:text-[10px]">
+						<div
+							class="flex items-center justify-between rounded border border-line bg-page px-2.5 py-2 text-muted"
+						>
+							<span>Nested Loops</span>
+							<span class="text-accent">38%</span>
+						</div>
+						<div class="ml-3 space-y-2 border-l border-line pl-3">
+							<div
+								class="flex items-center justify-between rounded border border-line bg-page px-2.5 py-2 text-muted"
+							>
+								<span>Index Seek</span>
+								<span class="text-accent">54%</span>
+							</div>
+							<div
+								class="flex items-center justify-between rounded border border-line bg-page px-2.5 py-2 text-muted"
+							>
+								<span>Key Lookup</span>
+								<span class="text-accent">8%</span>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<!-- Results grid -->
+				<article
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6 lg:col-span-2"
+				>
+					<div class="flex flex-wrap items-center gap-2.5">
+						<span
+							class="flex h-7 w-7 items-center justify-center rounded-md border border-line bg-page text-accent"
+						>
+							<Icon name="table" class="h-3.5 w-3.5" />
+						</span>
+						<h3 class="text-sm font-semibold text-ink">{content.capabilities.grid.title}</h3>
+					</div>
+					<p class="mt-3 max-w-xl text-sm leading-6 text-muted">
+						{content.capabilities.grid.description}
+					</p>
+					<div class="mt-5 overflow-hidden rounded-lg border border-line bg-surface-muted">
+						<img
+							src="/demo/cell-editing.webp"
+							width="1440"
+							height="900"
+							alt="Nova Tables results grid with edited cells highlighted"
+							loading="lazy"
+							decoding="async"
+							class="h-auto w-full"
+						/>
+					</div>
+				</article>
+
+				<!-- Query history -->
+				<article
+					class="group relative flex flex-col overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+				>
+					<div class="flex items-center gap-2.5">
+						<span
+							class="flex h-7 w-7 items-center justify-center rounded-md border border-line bg-page text-accent"
+						>
+							<Icon name="history" class="h-3.5 w-3.5" />
+						</span>
+						<h3 class="text-sm font-semibold text-ink">{content.capabilities.history.title}</h3>
+					</div>
+					<p class="mt-3 text-sm leading-6 text-muted">{content.capabilities.history.description}</p>
+					<div class="mt-5 overflow-hidden rounded-lg border border-line bg-surface-muted">
+						<img
+							src="/demo/query-history.webp"
+							width="1440"
+							height="900"
+							alt="Nova Tables query history dialog"
+							loading="lazy"
+							decoding="async"
+							class="h-auto w-full"
+						/>
+					</div>
+				</article>
+
+				<!-- Generated writes -->
+				<article
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+				>
+					<div class="flex items-center gap-2.5">
+						<span
+							class="flex h-7 w-7 items-center justify-center rounded-md border border-line bg-page text-accent"
+						>
+							<Icon name="file-json" class="h-3.5 w-3.5" />
+						</span>
+						<h3 class="text-sm font-semibold text-ink">{content.capabilities.writes.title}</h3>
+					</div>
+					<p class="mt-3 text-sm leading-6 text-muted">{content.capabilities.writes.description}</p>
+					<div class="mt-5 overflow-hidden rounded-lg border border-line bg-surface-muted">
+						<img
+							src="/demo/changes.webp"
+							width="1440"
+							height="900"
+							alt="Nova Tables generated UPDATE statements dialog"
+							loading="lazy"
+							decoding="async"
+							class="h-auto w-full"
+						/>
+					</div>
+				</article>
+
+				<!-- JSON viewer -->
+				<article
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+				>
+					<div class="flex items-center gap-2.5">
+						<span
+							class="flex h-7 w-7 items-center justify-center rounded-md border border-line bg-page text-accent"
+						>
+							<Icon name="search" class="h-3.5 w-3.5" />
+						</span>
+						<h3 class="text-sm font-semibold text-ink">{content.capabilities.json.title}</h3>
+					</div>
+					<p class="mt-3 text-sm leading-6 text-muted">{content.capabilities.json.description}</p>
+					<div class="mt-5 overflow-hidden rounded-lg border border-line bg-surface-muted">
+						<img
+							src="/demo/json-viewer.webp"
+							width="1440"
+							height="900"
+							alt="Nova Tables row inspector showing a record as JSON"
+							loading="lazy"
+							decoding="async"
+							class="h-auto w-full"
+						/>
+					</div>
+				</article>
+
+				<!-- Export -->
+				<article
+					class="group relative overflow-hidden rounded-xl border border-line bg-surface p-5 transition-colors hover:border-line-strong sm:p-6"
+				>
+					<div class="flex items-center gap-2.5">
+						<span
+							class="flex h-7 w-7 items-center justify-center rounded-md border border-line bg-page text-accent"
+						>
+							<Icon name="download" class="h-3.5 w-3.5" />
+						</span>
+						<h3 class="text-sm font-semibold text-ink">{content.capabilities.export.title}</h3>
+					</div>
+					<p class="mt-3 text-sm leading-6 text-muted">{content.capabilities.export.description}</p>
+					<div class="mt-5 overflow-hidden rounded-lg border border-line bg-surface-muted">
+						<img
+							src="/demo/export-connections.webp"
+							width="1440"
+							height="900"
+							alt="Nova Tables export connections dialog"
+							loading="lazy"
+							decoding="async"
+							class="h-auto w-full"
+						/>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- Developer experience -->
+	<section class="relative border-t border-line py-20 sm:py-28">
+		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
+				<div class="order-2 lg:order-1">
+					<div
+						class="relative overflow-hidden rounded-xl border border-line-strong bg-code-bg shadow-2xl shadow-black/20 dark:shadow-black/50"
+					>
+						<div class="flex h-10 items-center gap-2 border-b border-white/10 px-4">
+							<div class="flex items-center gap-1.5" aria-hidden="true">
+								<span class="h-2 w-2 rounded-full bg-[#ff5f57]/80"></span>
+								<span class="h-2 w-2 rounded-full bg-[#febc2e]/80"></span>
+								<span class="h-2 w-2 rounded-full bg-[#28c840]/80"></span>
+							</div>
+							<span class="ml-1 flex min-w-0 items-center gap-1.5 text-[10px] text-code-ink/60">
+								<Icon name="terminal" class="h-3 w-3 shrink-0" />
+								<span class="truncate">Query 1 · Local Testing DB</span>
+							</span>
+							<span
+								class="ml-auto hidden rounded border border-white/10 px-2 py-0.5 font-mono text-[9px] text-code-ink/50 sm:block"
+							>
+								Silent Mode
+							</span>
+						</div>
+
+						<pre
+							class="overflow-x-auto px-5 py-5 font-mono text-[11px] leading-7 text-code-ink sm:text-[12px]"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName, Email, City, Country, CreatedAt
+<span class="text-sky-300">FROM</span> dbo.Customers
+<span class="text-sky-300">ORDER BY</span> Id;</code></pre>
+
+						<div
+							class="flex flex-wrap items-center justify-between gap-2 border-t border-white/10 px-4 py-2.5 font-mono text-[9px] text-code-ink/45"
+						>
+							<span>24 rows · 3 ms</span>
+							<span class="inline-flex items-center gap-1.5 text-emerald-400/90">
+								<span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+								Query succeeded
+							</span>
+						</div>
+
+						<div class="border-t border-white/10 bg-white/[0.02] px-4 py-3.5">
+							<div class="grid grid-cols-4 gap-2 font-mono text-[9px] text-code-ink/40">
+								<span>Id</span>
+								<span>FullName</span>
+								<span>Email</span>
+								<span>City</span>
+							</div>
+							<div
+								class="mt-2 truncate rounded border border-white/10 bg-white/[0.03] px-2.5 py-2 font-mono text-[10px] text-code-ink/65"
+							>
+								1 · Krisna Maharani · krisna.maharani1@example.com · Kuala Lumpur
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="order-1 lg:order-2">
+					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+						{content.developer.eyebrow}
+					</p>
+					<h2
+						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+					>
+						{content.developer.title}
+					</h2>
+					<p class="mt-5 max-w-md text-sm leading-6 text-muted sm:text-base sm:leading-7">
+						{content.developer.description}
+					</p>
+
+					<ol class="mt-8 space-y-6">
+						{#each content.developer.steps as step, index}
+							<li class="flex gap-4">
+								<span
+									class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line bg-surface font-mono text-[10px] text-accent"
+								>
+									0{index + 1}
+								</span>
+								<div>
+									<h3 class="text-sm font-semibold text-ink">{step.title}</h3>
+									<p class="mt-1 max-w-md text-sm leading-6 text-muted">{step.description}</p>
+								</div>
+							</li>
+						{/each}
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Architecture -->
+	<section class="relative border-y border-line bg-surface py-20 sm:py-28">
+		<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+			<div class="grid-lines absolute inset-0 opacity-20"></div>
+		</div>
+		<div class="relative mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
+				<div>
+					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+						{content.architecture.eyebrow}
+					</p>
+					<h2
+						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-[2.85rem] lg:leading-[1.05]"
+					>
+						{content.architecture.title}
+					</h2>
+					<p class="mt-5 max-w-lg text-sm leading-6 text-muted sm:text-base sm:leading-7">
+						{content.architecture.description}
+					</p>
+
+					<dl
+						class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line"
+					>
+						{#each content.architecture.stats as stat}
+							<div class="bg-page px-4 py-4">
+								<dt class="font-display text-lg font-semibold tracking-tight text-ink">
+									{stat.value}
+								</dt>
+								<dd class="mt-1 text-[10px] leading-4 text-faint">{stat.label}</dd>
+							</div>
+						{/each}
+					</dl>
+					<p class="mt-4 max-w-lg text-[11px] leading-5 text-faint">
+						{content.architecture.footnote}
+					</p>
+				</div>
+
+				<div class="reveal rounded-xl border border-line bg-page p-5 sm:p-6">
+					<div class="space-y-2">
+						{#each content.architecture.layers as layer, index}
+							<div class="rounded-lg border border-line bg-surface px-4 py-3">
+								<div class="flex items-center justify-between gap-4">
+									<span class="text-[10px] uppercase tracking-[0.14em] text-faint">
+										{layer.label}
+									</span>
+									<span class="text-right font-mono text-[9px] text-muted sm:text-[10px]">
+										{layer.detail}
+									</span>
+								</div>
+							</div>
+							{#if index < content.architecture.layers.length - 1}
+								<div class="flex justify-center" aria-hidden="true">
+									<span class="h-2 w-px bg-line-strong"></span>
+								</div>
+							{/if}
+						{/each}
+					</div>
+
+					<div class="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
+						<span class="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-faint">
+							<Icon name="zap" class="h-3 w-3 text-accent" />
+							Async TDS
+						</span>
+						<span class="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-faint">
+							<Icon name="hard-drive" class="h-3 w-3 text-accent" />
+							Local WAL
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Privacy & security -->
+	<section id="security" class="relative scroll-mt-24 py-20 sm:py-28">
+		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+			<div
+				class="reveal relative overflow-hidden rounded-2xl border border-line bg-surface p-6 sm:p-10 lg:p-14"
 			>
-				{t('hero.cta')}
-				<Icon name="external-link" class="h-4 w-4" />
-			</a>
+				<div
+					class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent-soft blur-3xl"
+					aria-hidden="true"
+				></div>
+
+				<div class="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+					<div>
+						<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+							{content.security.eyebrow}
+						</p>
+						<h2
+							class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl"
+						>
+							{content.security.title}
+						</h2>
+						<p class="mt-5 max-w-md text-sm leading-6 text-muted sm:text-base sm:leading-7">
+							{content.security.description}
+						</p>
+
+						<div class="mt-6 flex flex-wrap gap-2">
+							{#each content.security.badges as badge}
+								<span
+									class="inline-flex items-center gap-1.5 rounded-full border border-line bg-page px-3 py-1 text-[11px] text-muted"
+								>
+									<Icon name="check" class="h-3 w-3 text-accent" />
+									{badge}
+								</span>
+							{/each}
+						</div>
+
+						<a
+							href={links.github}
+							target="_blank"
+							rel="noreferrer"
+							class="group mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent"
+						>
+							{content.nav.github}
+							<Icon
+								name="arrow-up-right"
+								class="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+							/>
+						</a>
+					</div>
+
+					<div class="grid gap-3 sm:grid-cols-2">
+						{#each content.security.items as item, index}
+							<div class="rounded-lg border border-line bg-page p-5">
+								<span
+									class="flex h-8 w-8 items-center justify-center rounded-md border border-line bg-surface text-accent"
+								>
+									<Icon name={securityIcons[index]} class="h-4 w-4" />
+								</span>
+								<h3 class="mt-4 text-sm font-semibold text-ink">{item.title}</h3>
+								<p class="mt-2 text-xs leading-5 text-muted">{item.description}</p>
+							</div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Download -->
+	<section id="download" class="relative scroll-mt-24 border-t border-line py-20 sm:py-28">
+		<div class="mx-auto w-full max-w-6xl px-5 sm:px-6">
+			<div
+				class="reveal relative overflow-hidden rounded-2xl border border-line bg-surface px-6 py-12 text-center sm:px-10 sm:py-16"
+			>
+				<div class="hero-halo pointer-events-none absolute inset-0" aria-hidden="true"></div>
+				<div class="relative mx-auto max-w-2xl">
+					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+						{content.download.eyebrow}
+					</p>
+					<h2
+						class="mt-4 text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:text-5xl lg:leading-[1.05]"
+					>
+						{content.download.title}
+					</h2>
+					<p class="mt-5 text-sm leading-6 text-muted sm:text-base sm:leading-7">
+						{content.download.description}
+					</p>
+
+					<div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+						<a
+							href="#platforms"
+							class="group inline-flex w-full items-center justify-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-semibold text-page transition-opacity hover:opacity-90 sm:w-auto"
+						>
+							{content.download.primaryCta}
+							<Icon name="download" class="h-4 w-4" />
+						</a>
+						<a
+							href={links.documentation}
+							target="_blank"
+							rel="noreferrer"
+							class="inline-flex w-full items-center justify-center gap-2 rounded-md border border-line bg-page px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-surface-muted sm:w-auto"
+						>
+							{content.download.secondaryCta}
+							<Icon name="arrow-up-right" class="h-4 w-4" />
+						</a>
+					</div>
+					<p class="mt-4 font-mono text-[10px] uppercase tracking-[0.12em] text-faint">
+						{content.download.version}
+					</p>
+				</div>
+
+				<div
+					id="platforms"
+					class="relative mx-auto mt-12 grid max-w-4xl scroll-mt-28 gap-3 text-left sm:grid-cols-2 lg:grid-cols-4"
+				>
+					{#each content.download.platforms as platform}
+						<a
+							href={links.downloads[platform.id]}
+							target="_blank"
+							rel="noreferrer"
+							class="group flex flex-col rounded-lg border border-line bg-page p-4 transition-colors hover:border-line-strong hover:bg-surface-muted"
+						>
+							<div class="flex items-center justify-between">
+								<Icon name={platformIcon(platform.id)} class="h-4 w-4 text-accent" />
+								<span class="font-mono text-[9px] uppercase tracking-[0.08em] text-faint">
+									{platform.format}
+								</span>
+							</div>
+							<span class="mt-7 block text-sm font-semibold text-ink">{platform.name}</span>
+							<span class="mt-0.5 block text-xs text-muted">{platform.detail}</span>
+							<span class="mt-3 inline-flex items-center gap-1 text-[11px] font-medium text-accent">
+								{content.nav.download}
+								<Icon
+									name="download"
+									class="h-3 w-3 transition-transform group-hover:translate-y-0.5"
+								/>
+							</span>
+						</a>
+					{/each}
+				</div>
+
+				<div class="relative mx-auto mt-8 max-w-3xl space-y-2 text-[11px] leading-5 text-faint">
+					<p>{content.download.note}</p>
+					<p>
+						{content.download.source}
+						<a
+							href={links.documentation}
+							target="_blank"
+							rel="noreferrer"
+							class="font-medium text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-accent"
+						>
+							{content.download.sourceLink}
+						</a>
+					</p>
+				</div>
+			</div>
 		</div>
 	</section>
 </div>
