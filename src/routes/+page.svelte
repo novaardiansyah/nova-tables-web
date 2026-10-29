@@ -29,61 +29,52 @@
 
 	<!-- Hero -->
 	<section class="relative pt-20 sm:pt-24 lg:pt-28" aria-labelledby="hero-heading">
-		<div class="mx-auto w-full max-w-5xl px-5 text-center sm:px-6">
-			<div
-				class="animate-rise inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-line bg-surface/70 py-1.5 pl-1.5 pr-3 text-[11px] font-medium text-muted backdrop-blur-sm sm:text-xs"
-			>
-				<span class="flex h-5 w-5 items-center justify-center rounded-full bg-accent-soft text-accent">
-					<Icon name="database" class="h-3 w-3" />
-				</span>
-				{content.hero.badge}
-				<span class="hidden h-3 w-px bg-line-strong sm:block"></span>
-				<span class="hidden font-mono text-[10px] text-faint sm:block">v2.1.0</span>
-			</div>
-
-			<h1
-				id="hero-heading"
-				class="animate-rise-delayed mt-7 text-balance text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.045em] text-ink sm:text-6xl lg:text-[4.4rem]"
-			>
-				{content.hero.titleLead}
-				<span class="block text-accent">{content.hero.titleAccent}</span>
-			</h1>
-
-			<p
-				class="animate-rise-delayed mx-auto mt-6 max-w-2xl text-balance text-base leading-7 text-muted sm:text-lg"
-			>
-				{content.hero.description}
-			</p>
-
-			<div class="animate-rise-delayed mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-				<a
-					href="#download"
-					class="group inline-flex w-full items-center justify-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-semibold text-page transition-opacity hover:opacity-90 sm:w-auto"
+		<div class="mx-auto w-full max-w-7xl px-5 text-center sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-4xl">
+				<h1
+					id="hero-heading"
+					class="animate-rise-delayed text-balance text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.045em] text-ink sm:text-6xl lg:text-[4.4rem]"
 				>
-					{content.hero.primaryCta}
-					<Icon
-						name="arrow-right"
-						class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
-					/>
-				</a>
-				<a
-					href={links.github}
-					target="_blank"
-					rel="noreferrer"
-					class="inline-flex w-full items-center justify-center gap-2 rounded-md border border-line bg-surface/60 px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-surface-muted sm:w-auto"
-				>
-					<Icon name="github" class="h-4 w-4" />
-					{content.hero.secondaryCta}
-				</a>
-			</div>
+					{content.hero.titleLead}
+					<span class="block text-accent">{content.hero.titleAccent}</span>
+				</h1>
 
-			<p class="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] text-faint">
-				<Icon name="device" class="h-3.5 w-3.5" />
-				{content.hero.platforms}
-			</p>
+				<p
+					class="animate-rise-delayed mx-auto mt-6 max-w-2xl text-balance text-base leading-7 text-muted sm:text-lg"
+				>
+					{content.hero.description}
+				</p>
+
+				<div class="animate-rise-delayed mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+					<a
+						href="#download"
+						class="group inline-flex w-full items-center justify-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-semibold text-page transition-opacity hover:opacity-90 sm:w-auto"
+					>
+						{content.hero.primaryCta}
+						<Icon
+							name="arrow-right"
+							class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+						/>
+					</a>
+					<a
+						href={links.github}
+						target="_blank"
+						rel="noreferrer"
+						class="inline-flex w-full items-center justify-center gap-2 rounded-md border border-line bg-surface/60 px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-surface-muted sm:w-auto"
+					>
+						<Icon name="github" class="h-4 w-4" />
+						{content.hero.secondaryCta}
+					</a>
+				</div>
+
+				<p class="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] text-faint">
+					<Icon name="device" class="h-3.5 w-3.5" />
+					{content.hero.platforms}
+				</p>
+			</div>
 		</div>
 
-		<div class="relative mx-auto mt-14 w-full max-w-6xl px-4 sm:mt-16 sm:px-6">
+		<div class="relative mx-auto mt-14 w-full max-w-7xl px-5 sm:mt-16 sm:px-6 lg:px-8">
 			<div
 				class="pointer-events-none absolute inset-x-16 top-10 h-52 rounded-full bg-accent-soft blur-[110px]"
 				aria-hidden="true"
@@ -123,7 +114,7 @@
 			</figure>
 		</div>
 
-		<div class="relative mx-auto mt-10 w-full max-w-5xl px-5 sm:px-6">
+		<div class="relative mx-auto mt-10 w-full max-w-7xl px-5 sm:px-6 lg:px-8">
 			<dl
 				class="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line lg:grid-cols-4"
 			>
@@ -278,7 +269,7 @@
 					<blockquote class="mt-8 border-l border-accent/40 pl-5">
 						<p class="text-sm leading-6 text-ink">“{content.value.quote}”</p>
 						<footer class="mt-2 text-[11px] uppercase tracking-[0.12em] text-faint">
-							— {content.value.quoteSource}
+							- {content.value.quoteSource}
 						</footer>
 					</blockquote>
 				</div>
@@ -349,7 +340,8 @@
 								</span>
 							</div>
 							<pre
-								class="overflow-x-auto px-3.5 py-3 font-mono text-[10px] leading-6 text-code-ink sm:text-[11px]"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName, Email, City, Country, CreatedAt
+								class="overflow-x-auto px-3.5 py-3 font-mono text-[10px] leading-6 text-code-ink sm:text-[11px]"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName,
+  Email, City
 <span class="text-sky-300">FROM</span> dbo.Customers
 <span class="text-sky-300">ORDER BY</span> Id;</code></pre>
 							<div
@@ -561,7 +553,8 @@
 						</div>
 
 						<pre
-							class="overflow-x-auto px-5 py-5 font-mono text-[11px] leading-7 text-code-ink sm:text-[12px]"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName, Email, City, Country, CreatedAt
+							class="overflow-x-auto px-5 py-5 font-mono text-[11px] leading-7 text-code-ink sm:text-[12px]"><code><span class="text-sky-300">SELECT</span> TOP 50 Id, FullName,
+  Email, City
 <span class="text-sky-300">FROM</span> dbo.Customers
 <span class="text-sky-300">ORDER BY</span> Id;</code></pre>
 
@@ -585,7 +578,7 @@
 							<div
 								class="mt-2 truncate rounded border border-white/10 bg-white/[0.03] px-2.5 py-2 font-mono text-[10px] text-code-ink/65"
 							>
-								1 · Krisna Maharani · krisna.maharani1@example.com · Kuala Lumpur
+								1 · Nova Ardiansyah · admin@novaardiansyah.id · Tangerang Selatan
 							</div>
 						</div>
 					</div>
@@ -767,7 +760,7 @@
 
 	<!-- Download -->
 	<section id="download" class="relative scroll-mt-24 border-t border-line py-20 sm:py-28">
-		<div class="mx-auto w-full max-w-6xl px-5 sm:px-6">
+		<div class="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
 			<div
 				class="reveal relative overflow-hidden rounded-2xl border border-line bg-surface px-6 py-12 text-center sm:px-10 sm:py-16"
 			>
@@ -810,7 +803,7 @@
 
 				<div
 					id="platforms"
-					class="relative mx-auto mt-12 grid max-w-4xl scroll-mt-28 gap-3 text-left sm:grid-cols-2 lg:grid-cols-4"
+					class="relative mt-12 grid scroll-mt-28 gap-3 text-left sm:grid-cols-2 lg:grid-cols-4"
 				>
 					{#each content.download.platforms as platform}
 						<a

@@ -39,7 +39,6 @@ export interface LandingCopy {
 		themeToDark: string;
 	};
 	hero: {
-		badge: string;
 		titleLead: string;
 		titleAccent: string;
 		description: string;
@@ -144,7 +143,6 @@ export const landingContent: Record<Lang, LandingCopy> = {
 			themeToDark: 'Switch to dark mode'
 		},
 		hero: {
-			badge: 'Native desktop SQL client for Microsoft SQL Server',
 			titleLead: 'SQL Server work,',
 			titleAccent: 'without the noise.',
 			description:
@@ -154,7 +152,7 @@ export const landingContent: Record<Lang, LandingCopy> = {
 			platforms: 'Windows x64 · Linux AppImage · .deb · .rpm',
 			imageAlt: 'Nova Tables workspace with a SQL editor above a results grid',
 			stats: [
-				{ value: '~60–80 MB', label: 'Documented memory footprint' },
+				{ value: '~60-80 MB', label: 'Documented memory footprint' },
 				{ value: 'Tauri v2', label: 'Native desktop shell' },
 				{ value: 'Rust 2021', label: 'Performance-critical core' },
 				{ value: 'Local-first', label: 'No account or telemetry' }
@@ -213,7 +211,7 @@ export const landingContent: Record<Lang, LandingCopy> = {
 			description:
 				'Nova Tables is made for people who work with Microsoft SQL Server every day and simply want a tidy place to look something up, write a query, and read the answer.',
 			quote: 'It stays deliberately small and focused on doing that well.',
-			quoteSource: 'Nova Tables README',
+			quoteSource: 'Nova Ardiansyah',
 			items: [
 				{
 					number: '01',
@@ -231,7 +229,7 @@ export const landingContent: Record<Lang, LandingCopy> = {
 					number: '03',
 					title: 'Native, not wrapped.',
 					description:
-						'Tauri v2 and Rust replace a browser runtime with a native shell. The documented footprint is roughly 60–80 MB of memory, with instant native startup.'
+						'Tauri v2 and Rust replace a browser runtime with a native shell. The documented footprint is roughly 60-80 MB of memory, with instant native startup.'
 				}
 			]
 		},
@@ -312,7 +310,7 @@ export const landingContent: Record<Lang, LandingCopy> = {
 				{ label: 'Storage & target', detail: 'rusqlite (WAL) · Microsoft SQL Server' }
 			],
 			stats: [
-				{ value: '~60–80 MB', label: 'Documented memory footprint' },
+				{ value: '~60-80 MB', label: 'Documented memory footprint' },
 				{ value: '20,000', label: 'Rows per result set before trimming' },
 				{ value: '2,000', label: 'Rows rendered in the virtualized grid' },
 				{ value: '500', label: 'Query history entries per connection' }
@@ -415,7 +413,6 @@ export const landingContent: Record<Lang, LandingCopy> = {
 			themeToDark: 'Ganti ke mode gelap'
 		},
 		hero: {
-			badge: 'Klien SQL desktop native untuk Microsoft SQL Server',
 			titleLead: 'Pekerjaan SQL Server,',
 			titleAccent: 'tanpa kebisingan.',
 			description:
@@ -425,7 +422,7 @@ export const landingContent: Record<Lang, LandingCopy> = {
 			platforms: 'Windows x64 · Linux AppImage · .deb · .rpm',
 			imageAlt: 'Ruang kerja Nova Tables dengan editor SQL di atas grid hasil',
 			stats: [
-				{ value: '~60–80 MB', label: 'Jejak memori terdokumentasi' },
+				{ value: '~60-80 MB', label: 'Jejak memori terdokumentasi' },
 				{ value: 'Tauri v2', label: 'Shell desktop native' },
 				{ value: 'Rust 2021', label: 'Inti performa' },
 				{ value: 'Lokal', label: 'Tanpa akun atau telemetri' }
@@ -484,7 +481,7 @@ export const landingContent: Record<Lang, LandingCopy> = {
 			description:
 				'Nova Tables dibuat untuk orang yang bekerja dengan Microsoft SQL Server setiap hari dan hanya ingin tempat rapi untuk mencari sesuatu, menulis kueri, dan membaca jawabannya.',
 			quote: 'Aplikasi ini tetap sengaja kecil dan fokus untuk melakukannya dengan baik.',
-			quoteSource: 'README Nova Tables',
+			quoteSource: 'Nova Ardiansyah',
 			items: [
 				{
 					number: '01',
@@ -502,7 +499,7 @@ export const landingContent: Record<Lang, LandingCopy> = {
 					number: '03',
 					title: 'Native, bukan pembungkus.',
 					description:
-						'Tauri v2 dan Rust menggantikan runtime browser dengan shell native. Jejak memori terdokumentasi sekitar 60–80 MB, dengan startup native yang instan.'
+						'Tauri v2 dan Rust menggantikan runtime browser dengan shell native. Jejak memori terdokumentasi sekitar 60-80 MB, dengan startup native yang instan.'
 				}
 			]
 		},
@@ -583,7 +580,7 @@ export const landingContent: Record<Lang, LandingCopy> = {
 				{ label: 'Penyimpanan & target', detail: 'rusqlite (WAL) · Microsoft SQL Server' }
 			],
 			stats: [
-				{ value: '~60–80 MB', label: 'Jejak memori terdokumentasi' },
+				{ value: '~60-80 MB', label: 'Jejak memori terdokumentasi' },
 				{ value: '20.000', label: 'Baris per result set sebelum dipangkas' },
 				{ value: '2.000', label: 'Baris yang dirender di grid virtual' },
 				{ value: '500', label: 'Entri riwayat kueri per koneksi' }
