@@ -9,11 +9,11 @@ export const links = {
 	email: 'mailto:admin@novaardiansyah.id',
 	downloads: {
 		windows:
-			'https://s3.novaardiansyah.id/release/Nova%20Tables/v2.1.0/nova-tables_2.1.0_x64-setup.exe',
+			'https://files.novaardiansyah.id/release/nova-tables/v2.1.0/nova-tables_2.1.0_x64-setup.exe',
 		appimage:
-			'https://s3.novaardiansyah.id/release/Nova%20Tables/v2.1.0/nova-tables_2.1.0_amd64.AppImage',
-		deb: 'https://s3.novaardiansyah.id/release/Nova%20Tables/v2.1.0/nova-tables_2.1.0_amd64.deb',
-		rpm: 'https://s3.novaardiansyah.id/release/Nova%20Tables/v2.1.0/nova-tables-2.1.0-1.x86_64.rpm'
+			'https://files.novaardiansyah.id/release/nova-tables/v2.1.0/nova-tables_2.1.0_amd64.AppImage',
+		deb: 'https://files.novaardiansyah.id/release/nova-tables/v2.1.0/nova-tables_2.1.0_amd64.deb',
+		rpm: 'https://files.novaardiansyah.id/release/nova-tables/v2.1.0/nova-tables-2.1.0-1.x86_64.rpm'
 	}
 } as const;
 
